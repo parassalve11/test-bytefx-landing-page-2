@@ -1,0 +1,87 @@
+@import 'tailwindcss';
+@import './styles/base.css' layer(base);
+@import './styles/components.css' layer(components);
+@import './styles/reference-theme.css' layer(components);
+
+/* ==========================================================================
+   ByteFX — design tokens
+   Global Prime reference palette, with original ByteFX glass artwork.
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* surfaces */
+  --shell: #0f0f0f;
+  --shell-2: #141414;
+  --panel: #141414;
+  --panel-2: #1b1b1b;
+  --line: #2c2c2c;
+  --line-soft: #222222;
+  --veil: rgba(20, 20, 20, 0.88);
+
+  /* ink */
+  --ink: #ffffff;
+  --ink-2: #bebebe;
+  --ink-3: #929292;
+
+  /* brand */
+  --brand: #ade512;
+  --brand-lift: #ade512;
+  --accent: #ade512;
+  --accent-hi: #c2f23c;
+  --accent-deep: #bdf32a;
+
+  /* effects */
+  --glow: rgba(173, 229, 18, 0.10);
+  --ring: rgba(173, 229, 18, 0.45);
+  --card: linear-gradient(145deg, #1b1b1b 0%, #141414 70%);
+  --drop: 0 24px 60px rgba(0, 0, 0, 0.55);
+  --well: transparent;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+
+  --shell: #f7f8f3;
+  --shell-2: #eff1e9;
+  --panel: #ffffff;
+  --panel-2: #f2f4eb;
+  --line: #d7dbce;
+  --line-soft: #e5e8de;
+  --veil: rgba(255, 255, 255, 0.86);
+
+  --ink: #161811;
+  --ink-2: #4e5345;
+  --ink-3: #696f5e;
+
+  --accent: #567600;
+  --accent-hi: #436000;
+  --accent-deep: #bdf32a;
+
+  --glow: rgba(100, 135, 10, 0.10);
+  --ring: rgba(100, 135, 10, 0.5);
+  --card: linear-gradient(158deg, #ffffff 0%, #f1f4e9 100%);
+  --drop: 0 18px 44px rgba(25, 30, 10, 0.1);
+}
+
+@theme inline {
+  --color-shell: var(--shell);
+  --color-shell-2: var(--shell-2);
+  --color-panel: var(--panel);
+  --color-panel-2: var(--panel-2);
+  --color-line: var(--line);
+  --color-line-soft: var(--line-soft);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-accent: var(--accent);
+  --color-accent-hi: var(--accent-hi);
+  --color-brand: var(--brand);
+  --color-lift: var(--brand-lift);
+
+  --font-sans: 'Figtree Variable', ui-sans-serif, system-ui, -apple-system,
+    'Segoe UI', Roboto, Arial, sans-serif;
+
+  --radius-tile: 18px;
+}

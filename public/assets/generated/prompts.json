@@ -1,0 +1,62 @@
+﻿{
+  "mode": "Built-in image_gen",
+  "reference": "https://globalprime.com/",
+  "palette": {
+    "background": "#0f0f0f",
+    "accent": "#ade512"
+  },
+  "assets": [
+    {
+      "path": "public/assets/generated/market-globe.png",
+      "prompt": "Use case: stylized-concept. Asset: transparent premium fintech website hero and markets illustration. Create one exquisite 3D smoked crystal glass globe with clearly formed translucent continents, thin orbital rings and three ascending glass candlestick bars beside it. Palette strictly charcoal, clear glass, silver-white specular highlights and acid lime #ade512 edge lighting (no blue, no amber). Three-quarter studio product render. Floating just above an invisible reflective ground plane, include a soft vertically mirrored reflection and subtle contact shadow directly beneath, fading to transparent. Composition: centered object group occupying 75% width, entire globe and reflection uncropped, generous breathing space. Physically realistic refraction, thick bevels, quiet sophisticated glassmorphism. Output a genuine transparent alpha background, no backdrop, no visible floor rectangle, no checkerboard drawn into the image. No text, letters, logos, watermarks, UI or numbers. Square image."
+    },
+    {
+      "path": "public/assets/generated/trading-platform.png",
+      "prompt": "Use case: stylized-concept. Asset: transparent fintech website platform illustration. One elegant slim smoked glass laptop with a smaller upright glass smartphone in front, three-quarter view. Screens contain abstract fine lime candlestick charts and understated neutral chart grid lines, no text, no numerals. Thick clear crystal edges, charcoal translucent material, silver speculars, acid lime #ade512 edge lighting, no blue. Premium photorealistic 3D glassmorphism studio render. Centered composition, objects fully visible with generous margin. Below the devices a soft fading mirrored reflection and contact shadow, on an invisible floor. Genuine transparent alpha background with no backdrop or drawn checkerboard. No logos or watermarks. Landscape 3:2."
+    },
+    {
+      "path": "public/assets/generated/referral-cards.png",
+      "prompt": "Use case: stylized-concept. Asset: transparent fintech referral illustration. Two overlapping upright translucent smoked crystal membership cards with a simple sculpted human silhouette symbol on each, connected by a delicate lime glass link. Clear thick beveled glass, charcoal smoked interior, silver specular highlights and acid lime #ade512 edge accents only, no blue. Premium photorealistic glassmorphism 3D product render at three-quarter view. Centered objects fully in frame with generous margins, soft mirrored reflection fading underneath and subtle contact shadow on invisible ground. Genuine transparent alpha background, no backdrop, no checkerboard drawn, no words, text, logos, watermark or numerals. Square."
+    },
+    {
+      "path": "public/assets/generated/partnership.png",
+      "prompt": "Use case: stylized-concept. Asset: transparent fintech partnership website illustration. A sculptural pair of interlocking upright rounded square crystal glass rings, one smoky clear and one subtly acid lime #ade512, symbolizing partnership. Three-quarter view, thick translucent glass with realistic refraction and bright white edge highlights, charcoal and lime palette only, no blue. Luxury minimal 3D studio product render. Full objects centered with margin and a soft fading mirrored reflection directly underneath on invisible floor. Genuine transparent alpha background, no backdrop, no drawn checkerboard, no text, no logos or watermarks. Square."
+    },
+    {
+      "path": "public/assets/generated/glass-panels.png",
+      "prompt": "Use case: stylized-concept. Asset: transparent full-screen fintech call-to-action background decoration. A wide architectural arrangement of seven tall translucent smoked glass rounded rectangular slabs, arranged in two groups at the far left and far right, tilted subtly at different angles. Center 45 percent of image must remain completely empty and transparent so website headline text can sit there. Slabs vary height, thick bevelled clear crystal edges, charcoal glass, silver specular highlights and very subtle acid lime #ade512 rim lighting. Premium photorealistic 3D glassmorphism, softly mirrored reflections fading below the slab bases, low soft contact shadows. Entire composition on genuine transparent alpha background, NO opaque backdrop, no checkerboard drawn, no atmospheric fog, no gradient wash, no visible ground rectangle, no text or logos. Landscape wide 3:2."
+    },
+    {
+      "path": "public/assets/generated/leverage.png",
+      "prompt": "Use case: stylized-concept. Asset: transparent fintech website benefit card illustration. Four ascending thick beveled translucent glass bars with a sculptural upward curved arrow behind them, representing adjustable trading leverage. Style: premium photorealistic 3D glassmorphism, thick beveled crystal, realistic refraction, charcoal smoked glass, silver-white highlights and acid lime #ade512 edge lighting only. No blue, no amber. Centered three-quarter studio view, entire object occupies 65 percent of frame with generous breathing space. Include a soft mirrored reflection directly beneath fading to transparency with a subtle contact shadow on invisible ground. Genuine transparent alpha background, no backdrop, no floor rectangle, no drawn checkerboard, no words, logos or watermark. Square."
+    },
+    {
+      "path": "public/assets/generated/spreads.png",
+      "prompt": "Use case: stylized-concept. Asset: transparent fintech website benefit card illustration. Two thick crystal glass discs standing closely together with a very narrow luminous gap between them, representing tight trading spreads. Style: premium photorealistic 3D glassmorphism, thick beveled crystal, realistic refraction, charcoal smoked glass, silver-white highlights and acid lime #ade512 edge lighting only. No blue, no amber. Centered three-quarter studio view, entire object occupies 65 percent of frame with generous breathing space. Include a soft mirrored reflection directly beneath fading to transparency with a subtle contact shadow on invisible ground. Genuine transparent alpha background, no backdrop, no floor rectangle, no drawn checkerboard, no words, logos or watermark. Square."
+    },
+    {
+      "path": "public/assets/generated/instruments.png",
+      "prompt": "Use case: stylized-concept. Asset: transparent fintech website benefit card illustration. A fan of five overlapping translucent glass tiles displaying simple sculpted symbols for currencies, precious metal, a candlestick, a globe and a diamond. No letters or numerals. Style: premium photorealistic 3D glassmorphism, thick beveled crystal, realistic refraction, charcoal smoked glass, silver-white highlights and acid lime #ade512 edge lighting only. No blue, no amber. Centered three-quarter studio view, entire object occupies 65 percent of frame with generous breathing space. Include a soft mirrored reflection directly beneath fading to transparency with a subtle contact shadow on invisible ground. Genuine transparent alpha background, no backdrop, no floor rectangle, no drawn checkerboard, no words, logos or watermark. Square."
+    },
+    {
+      "path": "public/assets/generated/execution.png",
+      "prompt": "Use case: stylized-concept. Asset: transparent fintech website benefit card illustration. A circular sculpted translucent smoked crystal speedometer with a luminous lime needle and delicate ticks, representing fast trade execution. No numbers. Style: premium photorealistic 3D glassmorphism, thick beveled crystal, realistic refraction, charcoal smoked glass, silver-white highlights and acid lime #ade512 edge lighting only. No blue, no amber. Centered three-quarter studio view, entire object occupies 65 percent of frame with generous breathing space. Include a soft mirrored reflection directly beneath fading to transparency with a subtle contact shadow on invisible ground. Genuine transparent alpha background, no backdrop, no floor rectangle, no drawn checkerboard, no words, logos or watermark. Square."
+    },
+    {
+      "path": "public/assets/generated/support.png",
+      "prompt": "Use case: stylized-concept. Asset: transparent fintech website benefit card illustration. An elegant crystal glass over-ear support headset and a small floating translucent speech bubble. No text. Style: premium photorealistic 3D glassmorphism, thick beveled crystal, realistic refraction, charcoal smoked glass, silver-white highlights and acid lime #ade512 edge lighting only. No blue, no amber. Centered three-quarter studio view, entire object occupies 65 percent of frame with generous breathing space. Include a soft mirrored reflection directly beneath fading to transparency with a subtle contact shadow on invisible ground. Genuine transparent alpha background, no backdrop, no floor rectangle, no drawn checkerboard, no words, logos or watermark. Square."
+    },
+    {
+      "path": "public/assets/generated/account-choice.png",
+      "prompt": "Use case: stylized-concept. Asset: transparent fintech website benefit card illustration. Three upright translucent smoked glass account cards fanned slightly apart, containing minimal sculpted horizontal lines and circular profile symbols. No text. Style: premium photorealistic 3D glassmorphism, thick beveled crystal, realistic refraction, charcoal smoked glass, silver-white highlights and acid lime #ade512 edge lighting only. No blue, no amber. Centered three-quarter studio view, entire object occupies 65 percent of frame with generous breathing space. Include a soft mirrored reflection directly beneath fading to transparency with a subtle contact shadow on invisible ground. Genuine transparent alpha background, no backdrop, no floor rectangle, no drawn checkerboard, no words, logos or watermark. Square."
+    },
+    {
+      "path": "public/assets/generated/demo.png",
+      "prompt": "Use case: stylized-concept. Asset: transparent fintech website benefit card illustration. A translucent smoked crystal shield with a lime glass play triangle suspended within it, representing practicing a trading strategy. Style: premium photorealistic 3D glassmorphism, thick beveled crystal, realistic refraction, charcoal smoked glass, silver-white highlights and acid lime #ade512 edge lighting only. No blue, no amber. Centered three-quarter studio view, entire object occupies 65 percent of frame with generous breathing space. Include a soft mirrored reflection directly beneath fading to transparency with a subtle contact shadow on invisible ground. Genuine transparent alpha background, no backdrop, no floor rectangle, no drawn checkerboard, no words, logos or watermark. Square."
+    },
+    {
+      "path": "public/assets/generated/mobile.png",
+      "prompt": "Use case: stylized-concept. Asset: transparent fintech website benefit card illustration. One upright slightly tilted translucent smoked crystal smartphone with a simple lime candlestick chart inside, plus a small glass orbital ring. No text or numbers. Style: premium photorealistic 3D glassmorphism, thick beveled crystal, realistic refraction, charcoal smoked glass, silver-white highlights and acid lime #ade512 edge lighting only. No blue, no amber. Centered three-quarter studio view, entire object occupies 65 percent of frame with generous breathing space. Include a soft mirrored reflection directly beneath fading to transparency with a subtle contact shadow on invisible ground. Genuine transparent alpha background, no backdrop, no floor rectangle, no drawn checkerboard, no words, logos or watermark. Square."
+    }
+  ]
+}

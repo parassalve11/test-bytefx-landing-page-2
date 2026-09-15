@@ -1,0 +1,25 @@
+﻿{
+  "mode": "Built-in image_gen",
+  "assets": [
+    {
+      "path": "public/assets/generated/market-tokens.png",
+      "prompt": "Use case: stylized-concept. Asset: ByteFX website markets card, replacing a globe. Create a luxurious 3D still life of five thick smoked crystal tokens and two small silver glass precious-metal bars, floating closely in an elegant ascending diagonal composition. Tokens carry only sculpted currency and asset symbols: dollar, euro, pound, Bitcoin, a diamond. NOT a planet or globe, NO candlesticks, NO charts, no orbital rings. Thick clear glass bevels, charcoal smoked centers, soft silver-white highlights with restrained acid lime #ade512 rim lighting. Realistic glass refraction. Soft mirrored reflection fading underneath. True transparent alpha background, no opaque floor or backdrop and no checkerboard drawn in. Premium understated composition with generous margins, centered, portrait-friendly square image, no text labels, no watermark."
+    },
+    {
+      "path": "public/assets/generated/apple-platforms.png",
+      "prompt": "Use case: product-mockup. Asset: ByteFX trading platforms website illustration. Create a photorealistic 3D product group with THREE distinct Apple devices: an open space-black MacBook Pro laptop behind left, a landscape iPad Pro tablet behind right with visibly separate thin black bezel and rounded aluminum chassis, and a portrait iPhone Pro with Dynamic Island in front right. Every device must be recognizably the Apple industrial design and all three screens must be clearly visible, tablet cannot be omitted or mistaken for the laptop. MacBook keyboard, trackpad, and screen notch visible. Devices sit in a tasteful slightly overlapping group, three-quarter view. Screens show elegant dark trading dashboards with subtle acid lime #ade512 line charts, tiny neutral UI, no readable marketing text. Smoke-black polished aluminum and subtle crystal-glass reflections, silver edges, restrained lime rim light, realistic not chunky toy devices. Soft mirrored reflection under all three devices fading to transparency. Genuine transparent alpha background, no backdrop, no drawn checkerboard or watermark. Wide landscape 3:2 composition, generous margins and complete uncropped devices."
+    },
+    {
+      "path": "public/assets/generated/closing-market-scene.png",
+      "prompt": "Use case: stylized-concept. Asset: ByteFX full-screen CTA scene, based on the attached wide blue reference image. Reference role: the wide blue image with circular glass arcs on LEFT and floating EURUSD/XAUUSD/BTCUSD glass cards on RIGHT is the COMPOSITION reference. Any other attached image is irrelevant to this scene. Generate a NEW image in the same composition, replacing blue with acid lime #ade512, neutral charcoal #0f0f0f and silver highlights. Far left: two enormous partial concentric smoked glass circular arcs with fine lime luminous rims and a few thin vertical transparent glass panes. Far right: three floating thick beveled smoked glass market tiles at varying depth, discreet labels EURUSD, XAUUSD and BTCUSD only, no percentages or claims. Keep all objects strictly in the outer 25 percent on each side. Entire central 50 percent is empty negative space with genuine transparency for a headline. Beautiful realistic refraction and restrained soft lime rim light, sophisticated cinematic glassmorphism. Very subtle fading reflections and contact shadows at bottom. Make all background between and behind objects genuinely transparent alpha: NO blue, no navy backdrop, no opaque fog, no checkerboard drawn. A wide 2:1 landscape, edge composition deliberately cropped at outer edges like the provided reference, NO extra center object, no watermark."
+    },
+    {
+      "path": "public/assets/generated/bitcoin-sculpture.png",
+      "prompt": "Use case: style-transfer. Input image is the supplied original ByteFX footer Bitcoin sculpture. Create a NEW premium glassmorphism rendition preserving its recognizable composition: one central upright Bitcoin medallion on a low round pedestal, a thin elliptical orbital ring encircling it with three small reflective spheres. Replace ALL gold and blue with translucent charcoal smoked crystal glass, silver-white specular highlights and acid lime #ade512 rim lights. Keep Bitcoin symbol sculpted into medallion, delicate etched circuits, ring and pedestal geometry, high-end realistic refraction. Reduce metallic heaviness: it should feel elegant smoked glass, gently illuminated. Add a soft mirrored reflection fading below the pedestal. Transparent alpha background, no opaque backdrop, no drawn checkerboard, no added text or logo. Landscape 5:4, full sculpture uncropped, generous margins."
+    }
+  ],
+  "references": [
+    "User-supplied blue CTA composition",
+    "public/assets/footer/image.png"
+  ]
+}
