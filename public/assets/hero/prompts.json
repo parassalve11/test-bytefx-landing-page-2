@@ -1,0 +1,17 @@
+{
+  "mode": "built-in image_gen",
+  "assets": [
+    {
+      "file": "hero-trading-cat.png",
+      "prompt": "Use case: ads-marketing. Generate an original premium ByteFX trading website hero background, landscape 1536x1024. Inspired by a cinematic grey tabby cat reclining in a black leather trading lounge, wearing black sunglasses and polished silver headphones with lime green details, holding a plain black coffee mug. Realistic detailed fur, confident relaxed expression. Cat and chair positioned in RIGHT HALF, head near 70 percent across, entire head and headphones clearly inside frame. Left 42 percent mostly quiet very dark charcoal room, subtle blurred leafy plant at edge, generous empty negative space for web heading. Background right has elegant dark trading monitors with faint lime chart traces, nighttime office glass and understated lime edge lighting. Reflective black desk, expensive editorial photography, photorealistic surreal character. Palette black #0b0d09, charcoal, lime #ade512, neutral grey fur. Wide medium shot, character prominent, not a distant room. No text, no logos, no letters, no numbers, no UI buttons, no watermarks. This is a background art asset only, not a completed website screenshot."
+    },
+    {
+      "file": "hero-green-discs.png",
+      "prompt": "Use case: ads-marketing. Create a striking original hero background image for ByteFX trading website. Landscape 1536x1024. Inspired by sculptural reflective green stacked circular discs: eight thick highly polished metallic lime-green elliptical discs fan and spiral diagonally upward on the RIGHT HALF, beautifully articulated chrome rims, translucent smoked glass edges, liquid-looking emerald and bright lime reflections. Each disc catches long studio highlights. Black mirror floor with realistic soft reflected shadows below. LEFT 45 percent is deep nearly black charcoal negative space reserved for heading overlay, with a very subtle green haze. Sculptural abstract financial momentum, elegant premium product campaign, macro 3D studio realism, beautiful asymmetry, strong visual depth. Palette charcoal #0b0d09 and lime #ade512 with emerald shadows. Main sculpture fully fits right half with breathing room, no cropping important forms at top. Absolutely NO text, percentages, logos, numbers, chart, letters or UI. A background artwork, not a website screenshot."
+    },
+    {
+      "file": "hero-gold-markets.png",
+      "prompt": "Use case: ads-marketing. Original cinematic luxury market-trading website hero background for ByteFX, landscape 1536x1024. On the RIGHT HALF a sculptural cluster of three beautiful solid gold bullion ingots and two upright brushed platinum circular coins, arranged with a single large looping smoked crystal-glass ribbon with subtle lime-green edge lighting, above a polished black stone surface. Rich authentic gold color, precise machined edges, realistic metallic grain, no engraving. Soft reflected objects on the surface and restrained volumetric light. Composition feels editorial and collectible, not a pile of money. LEFT 45 percent is uninterrupted deep charcoal #0b0d09 negative space for headline. Background fades black, lighting is elegant lime #ade512 combined with warm gold and platinum. All main objects inside frame, concentrated at 72 percent across, artistically staggered heights. Photorealistic high-end 3D advertising render. NO text, logos, numbers, charts, globes, badges, watermarks or UI elements. Website background artwork only."
+    }
+  ]
+}

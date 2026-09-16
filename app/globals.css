@@ -6,6 +6,7 @@
 @import './styles/platforms-atlas.css' layer(components);
 @import './styles/platform-section.css' layer(components);
 @import './styles/payments-section.css' layer(components);
+@import './styles/hero-slider.css' layer(components);
 
 /* ==========================================================================
    ByteFX — design tokens
@@ -89,3 +90,4 @@
 
   --radius-tile: 18px;
 }
+
