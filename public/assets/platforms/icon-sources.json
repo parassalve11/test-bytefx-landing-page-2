@@ -1,0 +1,12 @@
+[
+  {
+    "name": "mt4",
+    "source": "https://apps.apple.com/us/app/metatrader-4/id496212596?uo=4",
+    "url": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f4/ec/3f/f4ec3fab-8443-d76c-a9a3-e9a7994e7529/icon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/512x512bb.jpg"
+  },
+  {
+    "name": "mt5",
+    "source": "https://apps.apple.com/us/app/metatrader-5/id413251709?uo=4",
+    "url": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b7/6c/49/b76c4925-393e-6f18-389c-967bbcc98687/icon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/512x512bb.jpg"
+  }
+]

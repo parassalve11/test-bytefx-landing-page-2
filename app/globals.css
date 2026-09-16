@@ -2,6 +2,10 @@
 @import './styles/base.css' layer(base);
 @import './styles/components.css' layer(components);
 @import './styles/reference-theme.css' layer(components);
+@import './styles/mobile-section.css' layer(components);
+@import './styles/platforms-atlas.css' layer(components);
+@import './styles/platform-section.css' layer(components);
+@import './styles/payments-section.css' layer(components);
 
 /* ==========================================================================
    ByteFX — design tokens

@@ -1,0 +1,13 @@
+﻿{
+  "mode": "built-in image_gen",
+  "assets": [
+    {
+      "file": "platform-devices-front.png",
+      "prompt": "Use case: product-mockup. Generate a premium realistic studio product photograph for the ByteFX trading website platform section. A centered open space-black Apple-style laptop, viewed exactly straight-on, level camera, no tilt, no dramatic perspective, screen fully visible. A slim landscape tablet stands to its left and a tall modern smartphone stands to its right, all screens facing directly forward. Devices arranged in a balanced group with modest overlapping at their edges only. Screens show sophisticated generic dark financial dashboards: fine lime line charts, tiny gray data rows, restrained red and green trading chart marks, no readable text, no logos. Graphite aluminum, highly realistic glass reflections, soft studio highlights, subtle acid lime #ade512 edge lighting. Clean genuine transparent alpha background, soft contact shadows and subtle mirrored reflections below. No opaque background, no blue lighting, no hands, no floating elements. Wide 3:2 composition, all devices visible, generous margin. This is illustrative hardware artwork, not a screenshot of a specific platform."
+    },
+    {
+      "file": "mobile-dual-stage.png",
+      "prompt": "Use case: stylized-concept. Asset: subtle decorative artwork behind two real app screenshot phone mockups on a premium ByteFX website. Create a wide low oval plinth made of layered smoked graphite glass, two softly illuminated concentric lime #ade512 elliptical rims, very fine polished titanium bevels, elegant soft mirrored reflection fading below. A single thin translucent lime orbital arc rises behind the plinth and fades into transparency. No phone, no devices, no screens, no coins, no words, no symbols, no blue, no logos. Low restrained glow, luxurious clean realistic studio lighting. Genuine transparent alpha background. Centered symmetric wide 3:2 composition. Generous empty transparent upper center where two tall phone mockups will be placed by the website. Plinth concentrated in the lower third, subtle orbit behind."
+    }
+  ]
+}

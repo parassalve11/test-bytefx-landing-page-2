@@ -1,117 +1,34 @@
+﻿/* Original solid interface glyphs. No icon-library dependency. */
 const shapes = {
-  arrow: <path d="M4 12h15m-6-6 6 6-6 6" />,
-  caret: <path d="m6 9 6 6 6-6" />,
-  chevron: <path d="m9 6 6 6-6 6" />,
-  back: <path d="M20 12H5m6 6-6-6 6-6" />,
-  sun: (
-    <>
-      <circle cx="12" cy="12" r="4.2" />
-      <path d="M12 2.6v2.1m0 14.6v2.1M2.6 12h2.1m14.6 0h2.1M5.4 5.4l1.5 1.5m10.2 10.2 1.5 1.5M5.4 18.6l1.5-1.5M17.1 6.9l1.5-1.5" />
-    </>
-  ),
-  moon: <path d="M20.4 14.2A8.6 8.6 0 0 1 9.8 3.6a8.7 8.7 0 1 0 10.6 10.6Z" />,
-  phone: (
-    <path d="M7.4 3h-2A2.4 2.4 0 0 0 3 5.6C3 14.1 9.9 21 18.4 21a2.4 2.4 0 0 0 2.6-2.4v-2l-4.4-1.8-1.9 2.3a13.6 13.6 0 0 1-5.8-5.8l2.3-1.9Z" />
-  ),
-  mail: (
-    <>
-      <rect x="2.8" y="5" width="18.4" height="14" rx="3" />
-      <path d="m4 7.6 8 5.4 8-5.4" />
-    </>
-  ),
-  pin: (
-    <>
-      <path d="M19 10.3c0 5-7 10.7-7 10.7s-7-5.7-7-10.7a7 7 0 1 1 14 0Z" />
-      <circle cx="12" cy="10.2" r="2.4" />
-    </>
-  ),
-  badge: (
-    <>
-      <rect x="3.5" y="4" width="17" height="16" rx="3" />
-      <path d="M7.5 9.5h9m-9 4h6" />
-    </>
-  ),
-  globe: (
-    <>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M3.2 9.6h17.6M3.2 14.4h17.6" />
-      <ellipse cx="12" cy="12" rx="4" ry="9" />
-    </>
-  ),
-  shield: (
-    <>
-      <path d="M12 2.8 5 5.6v5.6c0 4.5 3 8.2 7 9.9 4-1.7 7-5.4 7-9.9V5.6Z" />
-      <path d="m9.2 12 2 2 3.6-3.8" />
-    </>
-  ),
-  spark: <path d="M12 2.6 14 9l6.4 2-6.4 2-2 6.4-2-6.4L3.6 11 10 9Z" />,
-  qr: (
-    <>
-      <rect x="3.2" y="3.2" width="6.4" height="6.4" rx="1.4" />
-      <rect x="14.4" y="3.2" width="6.4" height="6.4" rx="1.4" />
-      <rect x="3.2" y="14.4" width="6.4" height="6.4" rx="1.4" />
-      <path d="M14.4 14.4h3v3h-3zm6.4 0v3m-3 3.4h3m-6.4 0h.02" />
-    </>
-  ),
-  star: (
-    <path
-      d="m12 3.4 2.6 5.4 5.9.8-4.3 4.1 1.1 5.9-5.3-2.9-5.3 2.9 1.1-5.9L3.5 9.6l5.9-.8Z"
-      fill="currentColor"
-      stroke="none"
-    />
-  ),
-  drag: (
-    <>
-      <path d="M8 6.5 4.5 10 8 13.5M16 6.5 19.5 10 16 13.5M4.5 10h15" />
-      <path d="M12 16v3.5" strokeDasharray="0.1 3.4" />
-    </>
-  ),
-  x: <path d="M4 3.5h3.9l11.6 17H15.6ZM19.6 3.5l-6.8 7.8M4.4 20.5l6.8-7.8" />,
-  instagram: (
-    <>
-      <rect x="3.3" y="3.3" width="17.4" height="17.4" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.1" cy="6.9" r="0.9" fill="currentColor" stroke="none" />
-    </>
-  ),
-  facebook: (
-    <path d="M14.4 21v-8.2h2.8l.5-3.5h-3.3V7.1c0-1 .3-1.7 1.7-1.7h1.8V2.3a23 23 0 0 0-2.6-.1c-2.6 0-4.4 1.6-4.4 4.5v2.6H8v3.5h2.9V21" />
-  ),
-  linkedin: (
-    <>
-      <rect x="3.3" y="3.3" width="17.4" height="17.4" rx="3.4" />
-      <path d="M7.4 10.4v6.4m4 0v-6.4m0 3.1c0-3.4 5.2-3.4 5.2 0v3.3" />
-      <circle cx="7.4" cy="7.2" r="1" fill="currentColor" stroke="none" />
-    </>
-  ),
-  youtube: (
-    <>
-      <rect x="2.6" y="5.4" width="18.8" height="13.2" rx="4.2" />
-      <path d="m10.3 9.2 5 2.8-5 2.8Z" />
-    </>
-  ),
-  telegram: <path d="M21 4.2 2.9 11.1l4.8 1.7 1.8 5.6 2.7-3.1 4.4 3.3Zm0 0-13.3 8.6" />,
+  arrow: <path d="M3 10.5h12L10.5 6 13 3.5l8.5 8.5-8.5 8.5-2.5-2.5 4.5-4.5H3z" />,
+  back: <path d="M21 10.5H9L13.5 6 11 3.5 2.5 12l8.5 8.5 2.5-2.5L9 13.5h12z" />,
+  caret: <path d="m5 8 7 8 7-8z" />,
+  chevron: <path d="m8 4 9 8-9 8z" />,
+  close: <path d="m5 3 7 7 7-7 2 2-7 7 7 7-2 2-7-7-7 7-2-2 7-7-7-7z" />,
+  chat: <path d="M3 3h18v14H10l-7 5V3zm4 5v2h10V8H7zm0 4v2h7v-2H7z" fillRule="evenodd" />,
+  send: <path d="m2 2 21 10L2 22l3-8 11-2-11-2z" />,
+  refresh: <path d="M12 3a9 9 0 1 0 8.5 12h-3.3A6 6 0 1 1 16 7l-4 4h10V1l-3.8 3.8A9 9 0 0 0 12 3z" />,
+  expand: <path d="M2 2h8v3H5v5H2zm12 0h8v8h-3V5h-5zM2 14h3v5h5v3H2zm17 0h3v8h-8v-3h5z" />,
+  sun: <><circle cx="12" cy="12" r="5"/><path d="M10.5 0h3v4h-3zm0 20h3v4h-3zM0 10.5h4v3H0zm20 0h4v3h-4zM3 1l4 4-2 2-4-4zm14 18 2-2 4 4-2 2zM1 21l4-4 2 2-4 4zM17 5l4-4 2 2-4 4z"/></>,
+  moon: <path d="M10 1a11 11 0 1 0 13 13A10 10 0 0 1 10 1z" />,
+  phone: <path d="m3 2 5 1 2 5-3 2a19 19 0 0 0 7 7l2-3 5 2 1 5c-9 5-25-11-19-19z" />,
+  mail: <path d="M2 4h20v16H2V4zm2 2v3l8 5 8-5V6l-8 5-8-5z" fillRule="evenodd" />,
+  pin: <path d="M12 1a8 8 0 0 0-8 8c0 6 8 14 8 14s8-8 8-14a8 8 0 0 0-8-8zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6z" fillRule="evenodd" />,
+  badge: <path d="M2 3h20v18H2zm4 5v3h12V8zm0 6v2h8v-2z" fillRule="evenodd" />,
+  globe: <path d="M12 1a11 11 0 1 0 0 22 11 11 0 0 0 0-22zM5 5l4-1 3 4-3 4H5l-2-2zm5 8 7-1 3 3-5 6-3-1-1-4z" fillRule="evenodd" />,
+  shield: <path d="m12 1 9 4v7c0 5-6 9-9 11-3-2-9-6-9-11V5zm-5 10-2 2 5 5 9-9-2-2-7 7z" fillRule="evenodd" />,
+  spark: <path d="m12 0 3.5 8.5L24 12l-8.5 3.5L12 24l-3.5-8.5L0 12l8.5-3.5z" />,
+  qr: <path d="M1 1h9v9H1zm3 3v3h3V4zm10-3h9v9h-9zm3 3v3h3V4zM1 14h9v9H1zm3 3v3h3v-3zm10-3h4v4h-4zm6 0h3v6h-3zm-6 6h6v3h-6zm7 1h2v2h-2z" fillRule="evenodd" />,
+  star: <path d="m12 1 3.4 7 7.6 1-5.5 5.4 1.3 7.6-6.8-3.6-6.8 3.6 1.3-7.6L1 9l7.6-1z" />,
+  drag: <path d="m0 12 7-7v5h10V5l7 7-7 7v-5H7v5z" />,
+  x: <path d="M2 2h5l15 20h-5L2 2zm17 0h3L5 22H2z" />,
+  instagram: <path d="M6 1h12a5 5 0 0 1 5 5v12a5 5 0 0 1-5 5H6a5 5 0 0 1-5-5V6a5 5 0 0 1 5-5zm6 5a6 6 0 1 0 0 12 6 6 0 0 0 0-12zm0 3a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm6-5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" fillRule="evenodd" />,
+  facebook: <path d="M14 24V13h4l1-4h-5V6c0-2 1-2 5-2V0h-4c-4 0-6 2-6 6v3H6v4h3v11z" />,
+  linkedin: <path d="M1 1h22v22H1zm4 8v10h3V9zm1.5-5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 9v10h3v-6c0-3 3-3 3 0v6h3v-7c0-4-4-5-6-2V9z" fillRule="evenodd" />,
+  youtube: <path d="M5 3h14a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H5a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm4 4v10l9-5z" fillRule="evenodd" />,
+  telegram: <path d="m1 10 22-9-4 22-7-6-4 4v-7l11-10-14 8z" />,
 };
-
-export default function Icon({ name, size = 18, className, ...rest }) {
-  const shape = shapes[name];
-  if (!shape) return null;
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      focusable="false"
-      className={className}
-      {...rest}
-    >
-      {shape}
-    </svg>
-  );
+export default function Icon({name,size=18,className,...rest}) {
+  if (!shapes[name]) return null;
+  return <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" className={className} {...rest}>{shapes[name]}</svg>;
 }

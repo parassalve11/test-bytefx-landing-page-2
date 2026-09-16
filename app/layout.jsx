@@ -13,7 +13,13 @@ export const metadata = {
     siteName: 'ByteFX',
     type: 'website',
   },
-  icons: { icon: '/assets/logo/bytefx.png' },
+  icons: {
+    icon: [
+      { url: '/assets/logo/bytefx-icon-32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/assets/logo/bytefx-icon-192.png', sizes: '192x192', type: 'image/png' },
+    ],
+    apple: '/assets/logo/bytefx-icon-180.png',
+  },
 };
 
 export const viewport = {

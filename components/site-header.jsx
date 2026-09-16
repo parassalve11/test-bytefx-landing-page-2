@@ -232,14 +232,14 @@ export default function SiteHeader() {
                 </p>
                 {site.mobileAppUrl ? (
                   <div className="qr-frame">
-                    <Image src="/app-qr.png" alt="Scan to download the ByteFX app" width={328} height={328} />
+                    <Image src="/app-qr.png" alt="Scan to download the ByteFX app" width={392} height={392} unoptimized />
                   </div>
                 ) : (
                   <p className="qr-coming-soon">App download coming soon</p>
                 )}
                 {site.mobileAppUrl ? (
                   <SmartLink href={site.mobileAppUrl} className="btn btn--sm btn--ghost">
-                    Open download page
+                    Get it on Google Play
                   </SmartLink>
                 ) : (
                   null

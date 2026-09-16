@@ -1,0 +1,17 @@
+[
+  {
+    "id": "mt4",
+    "url": "https://www.metatrader4.com/i/metatrader-4-logo_2x.png",
+    "source": "https://www.metatrader4.com/en"
+  },
+  {
+    "id": "mt5",
+    "url": "https://www.metatrader5.com/i/metatrader-5-logo_2x.png",
+    "source": "https://www.metatrader5.com/en"
+  },
+  {
+    "id": "tradingview",
+    "url": "https://static.tradingview.com/static/images/favicon/apple-touch-icon-180x180.png",
+    "source": "https://www.tradingview.com/"
+  }
+]
