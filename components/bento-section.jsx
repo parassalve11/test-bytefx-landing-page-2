@@ -44,7 +44,7 @@ export default function BentoSection() {
           </Reveal>
 
           {/* platforms */}
-          <Reveal as="article" className="tile t-platforms" delay={80} id="platforms">
+          <Reveal as="article" className="tile t-platforms t-platforms--wallpaper" delay={80} id="platforms">
             <div className="t-platforms__copy">
               <p className="eyebrow">{platforms.eyebrow}</p>
               <h2 className="h-md">
@@ -57,21 +57,7 @@ export default function BentoSection() {
               </SmartLink>
             </div>
 
-            <p className="stamp">
-              {platforms.badge[0]}
-              <br />
-              {platforms.badge[1]}
-            </p>
-
-            <figure>
-              <Image
-                className="tile__art"
-                src={platforms.image}
-                alt={platforms.alt}
-                width={1448}
-                height={1086}
-              />
-            </figure>
+            <Image className="t-platforms__wallpaper" src="/assets/generated/platform-wallpaper.png" alt="" fill sizes="(max-width: 760px) 100vw, 800px" aria-hidden="true" />
           </Reveal>
 
           {/* refer */}

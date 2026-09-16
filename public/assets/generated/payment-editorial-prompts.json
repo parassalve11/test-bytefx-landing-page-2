@@ -1,0 +1,21 @@
+﻿{
+  "mode": "built-in image_gen",
+  "assets": [
+    {
+      "file": "payment-jar.png",
+      "prompt": "Use case: product-mockup. Premium ByteFX payment illustration inspired by a clear savings jar filled with chrome payment tokens. Create one beautiful heavy crystal-glass jar with a polished acid-lime #ade512 metallic lid, slightly angled in a three-quarter view. Inside are large silver coins with recognizable original-color Visa blue wordmark, Mastercard overlapping red and orange circles, black Apple Pay mark, orange Bitcoin emblem, green Tether symbol, and a simple bank symbol. Carefully spaced, sophisticated composition, realistic milled chrome coin edges and subtle green refractions. No extra text, no jar label, no hanging tag, no unrelated branding, no watermark. Object centered fully visible with breathing room. Soft reflection and contact shadow below, genuine transparent alpha background, absolutely no white rectangular backdrop. This will sit on a dark charcoal website. Luxurious editorial product lighting. Portrait 4:5."
+    },
+    {
+      "file": "payment-vault.png",
+      "prompt": "Use case: product-mockup. Original premium ByteFX payment illustration inspired by a compact lime vault with coins. A beautifully crafted small metallic acid-lime #ade512 safe, rounded square door ajar, brushed chrome hinge and circular combination dial, thick polished edges. A tidy stack of silver coins inside and two floating silver coins just behind it, embossed only with a simple bank-building symbol and a small geometric arrow; no XME, no words, no brand, no lettering, no watermark. Realistic luxury product render, three-quarter view, cool silver reflections with subtle lime highlights, transparent glass side panel. Entire object visible centered with generous margins, soft contact shadow and fading reflection. Genuine transparent alpha background, no opaque white backdrop. Portrait 4:5. Restrained, elegant financial website artwork rather than cartoon."
+    },
+    {
+      "file": "../mobile/platinum-rating.png",
+      "prompt": "Use case: ads-marketing. Create ONE compact elegant rating badge image for a blue ByteFX mobile trading website section. Genuine transparent alpha background. The complete badge must be one cohesive raster asset. At top exactly FIVE small beautifully faceted GOLD five-point stars in a straight horizontal row, tastefully metallic and realistic, evenly spaced. Below, very large bold premium clean sans-serif text EXACTLY '4.9/5' in luminous platinum-white with very subtle ice-blue dimensional bevel. Below that, smaller readable text EXACTLY 'Platinum Rated by Traders' on one centered line in white. Below, a SINGLE delicate symmetrical platinum-silver laurel wreath, refined realistic leaves, not cartoon. Minimal luxury composition, calm balanced proportions, wide landscape 4:3. Badge occupies most canvas with modest safe margins. No plaque, no circle enclosure, no extra words, no background, no fake transparency checkerboard, no watermark. At 200px wide the numbers and words must remain legible. Match a supplied rating graphic with gold stars, silver number, and silver laurel."
+    },
+    {
+      "file": "platform-wallpaper.png",
+      "prompt": "Use case: stylized-concept. Asset: edge-to-edge atmospheric wallpaper background for a premium trading-platform website bento card. Landscape 3:2 image, opaque charcoal black #0f0f0f backdrop. On the RIGHT two-thirds, sculptural flowing ribbons of smoked translucent glass with sharp acid-lime #ade512 illuminated edges sweep from bottom center toward upper right, interleaved with thin brushed platinum architectural fins. Sleek macro product-photography realism, understated cinematic depth and beautiful specular details. A faint reflective dark floor below. The LEFT 50% and upper-left must remain very dark nearly black and softly empty for website heading and paragraph overlay. No devices, no laptop, no phones, no globe, no coins, no candlestick chart, no text, no logo, no watermark. Sophisticated desktop wallpaper aesthetic, rich yet restrained, not neon noisy. Asymmetric composition with all bright detail on the right, generous dark text-safe area on left."
+    }
+  ]
+}

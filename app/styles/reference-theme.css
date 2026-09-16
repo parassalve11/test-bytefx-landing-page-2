@@ -161,3 +161,15 @@ a.stat__go:hover, a.social:hover { color: #0f0f0f; }
 @media (prefers-reduced-motion: reduce) {
   .closing__wing { transform: none; will-change: auto; }
 }
+/* A wallpaper-led platform tile contrasts with the three object-led cards. */
+.t-platforms.t-platforms--wallpaper { isolation: isolate; background: #10120f; min-height: 380px; }
+.t-platforms--wallpaper .t-platforms__wallpaper { object-fit: cover; object-position: center; z-index: -2; transition: transform .8s ease; }
+.t-platforms--wallpaper::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg,#070a08db 0%,#070a0870 50%,transparent 80%); pointer-events: none; }
+.t-platforms--wallpaper:hover .t-platforms__wallpaper { transform: scale(1.035); }
+.t-platforms--wallpaper .t-platforms__copy { width: 65%; max-width: 480px; padding: 38px; }
+.t-platforms--wallpaper .h-md { color: #fff; }
+.t-platforms--wallpaper .tint,.t-platforms--wallpaper .eyebrow { color: #ade512; }
+.t-platforms--wallpaper .lede { color: #d3d8cf; }
+@media(max-width:1180px) { .t-platforms--wallpaper .t-platforms__copy { width: 80%; padding: 30px; } }
+@media(max-width:760px) { .t-platforms.t-platforms--wallpaper { min-height: 430px; align-items: flex-start; } .t-platforms--wallpaper .t-platforms__copy { width: 100%; padding: 28px; } .t-platforms--wallpaper .t-platforms__wallpaper { object-position: 65% center; } .t-platforms--wallpaper::after { background: linear-gradient(130deg,#070a08eb,#070a0890 60%,#070a0820); } }
+@media(prefers-reduced-motion:reduce) { .t-platforms--wallpaper .t-platforms__wallpaper { transition: none; } .t-platforms--wallpaper:hover .t-platforms__wallpaper { transform: none; } }

@@ -8,7 +8,7 @@ function StoreBadge({ apple = false }) {
 }
 
 function Rating() {
-  return <div className="mobile-rating" aria-label="4.9 out of 5, Platinum Rated by Traders"><div className="mobile-rating__stars" aria-hidden="true">{Array.from({length:5},(_,i)=><svg key={i} viewBox="0 0 24 24"><defs><linearGradient id={`rating-gold-${i}`} x2="0" y2="1"><stop stopColor="#fff697"/><stop offset=".5" stopColor="#ffc900"/><stop offset="1" stopColor="#bb7000"/></linearGradient></defs><path d="m12 1 3.4 7 7.6 1-5.5 5.4 1.3 7.6-6.8-3.6-6.8 3.6 1.3-7.6L1 9l7.6-1z" fill={`url(#rating-gold-${i})`} stroke="#ffed7a" strokeWidth=".5" /></svg>)}</div><strong>4.9/5</strong><span>Platinum Rated by Traders</span><svg className="mobile-rating__laurel" viewBox="0 0 120 38" aria-hidden="true"><g fill="#c4e5ff"><path d="M59 34C35 31 17 17 8 2c3 20 22 33 51 34ZM61 34c24-3 42-17 51-32-3 20-22 33-51 34Z"/>{[0,1,2,3,4].map(i=><g key={i} transform={`translate(${14+i*9} ${7+i*5}) rotate(${-35+i*7})`}><ellipse cx="0" cy="0" rx="3" ry="7"/><ellipse cx="-4" cy="7" rx="6" ry="2.5"/></g>)}{[0,1,2,3,4].map(i=><g key={i} transform={`translate(${106-i*9} ${7+i*5}) rotate(${35-i*7})`}><ellipse cx="0" cy="0" rx="3" ry="7"/><ellipse cx="4" cy="7" rx="6" ry="2.5"/></g>)}</g></svg></div>;
+  return <div className="mobile-rating"><Image src="/assets/mobile/platinum-rating.png" alt="4.9 out of 5. Platinum Rated by Traders." width={1448} height={1086} sizes="(max-width: 560px) 145px, 205px" /></div>;
 }
 
 export default function MobileSection() {

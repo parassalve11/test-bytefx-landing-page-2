@@ -27,17 +27,17 @@ Dark is the default. The header toggle remembers an explicit light/dark preferen
 1. Header with desktop mega menus and a mobile drawer.
 2. Full-height hero placeholder with plain "Hero section under progress" text.
 3. **Trade with a global broker:** eight cards in a draggable carousel. The three added cards cover account choice, demo practice and mobile access.
-4. Markets with glass currency tokens and metal bars; platforms with a MacBook, iPad and iPhone; referral and partnership bento cards.
+4. Markets with glass currency tokens and metal bars; platforms with a sculptural glass wallpaper; referral and partnership bento cards.
 5. Centered platform section with a new front-facing laptop, tablet and phone image; glass MetaTrader 4, MetaTrader 5 and TradingView capsules with official standalone app icons and a single changing description.
 6. Blue mobile section matching the supplied reference: original hand-held ByteFX artwork on desktop, a separate upright screenshot phone below 981px, real Google Play QR, an App Store badge awaiting its URL, and the user-supplied 4.9/5 rating.
-7. Simple interactive chrome-glass payment grid with original-color Visa, Mastercard, Apple Pay, Bitcoin, USDT, bank wire and UPI marks. One description updates on selection.
+7. Payment section with generated glass-jar and lime-vault illustrations beside seven expandable payment methods. Original-color Visa, Mastercard, Apple Pay, Bitcoin, USDT, bank wire and UPI logos accompany individual descriptions.
 8. Testimonials.
 9. **Ready to start trading?** with a minimum height of `100svh`, a lime glass scene inspired by the supplied background: arcs on the left and market tiles on the right. The two sides move toward one another as the section scrolls through the viewport. Reduced-motion preferences disable this effect. Small screens position the artwork beneath the content; content can grow for accessibility.
 10. Footer with a new lime glass Bitcoin sculpture based on the supplied footer image.
 
 ## Artwork
 
-Original PNG images were generated using the built-in image_gen tool and saved in `public/assets/generated/`. All have actual alpha transparency, lime-lit smoked glass and soft mirrored reflections. Next Image serves optimized image formats. The original supplied images remain available in their old folders; the page now references the generated artwork.
+Original PNG images were generated using the built-in image_gen tool and saved in `public/assets/generated/`. Object illustrations use alpha transparency and soft reflections; the platform wallpaper is an opaque charcoal, glass and lime composition. Next Image serves optimized image formats. Earlier artwork remains available in its original folders.
 
 The initial prompts, filenames, palette and generation mode are recorded in [prompts.json](public/assets/generated/prompts.json). The four revised images and their exact prompts are recorded in [revision-prompts.json](public/assets/generated/revision-prompts.json).
 
@@ -67,7 +67,8 @@ Current platform artwork: `public/assets/generated/platform-devices-front.png`. 
 - Chrome checks passed at 320, 390, 768, 1024 and 1440 pixels wide, without horizontal page overflow.
 - Verified full-viewport closing height, eight cards, carousel navigation and end state, desktop/mobile menus, Escape, theme persistence and reduced motion.
 - No browser console errors or broken images in the final checks.
-- Verified desktop hand-held artwork, alternate mobile phone, three glass platform tabs, seven chrome-glass payment tiles including UPI, QR decoding, keyboard selection, Atlas, light theme and reduced motion at widths from 320 to 1440 pixels.
+- Verified desktop hand-held artwork, alternate mobile phone, three glass platform tabs, seven payment accordions including UPI, QR decoding, keyboard selection, Atlas, light theme and reduced motion at widths from 320 to 1440 pixels.
+- The latest checks cover both payment illustrations, accordion expansion/collapse and keyboard navigation, a single mobile rating image, platform wallpaper contrast, and responsive layouts without runtime errors.
 - Review screenshots are saved in `output/review/`.
 
 ## Brand icon
@@ -78,4 +79,6 @@ The favicon uses the symbol from the original ByteFX logo, exported at 32 and 19
 
 Desktop artwork is `public/assets/mobile/bytefx-handheld.webp`, copied unchanged from the supplied `Downloads/mobile.webp`. The small-screen alternative uses the actual chart screenshot in an upright frame. `site.iosAppUrl` remains null; add the approved App Store URL there to activate its badge. The 4.9/5 rating text was supplied and explicitly requested by the user; its source link is still pending. The QR continues to encode the confirmed Google Play URL.
 
-The glass payment base was generated with built-in image_gen and saved as `public/assets/payments/chrome-glass.png`; the exact prompt is in `public/assets/payments/glass-asset.json`. Brand SVGs remain separate so their colors stay intact. Mastercard uses the red/orange mark recorded in that manifest.
+The payment section now uses `public/assets/generated/payment-jar.png` and `payment-vault.png`, inspired by the supplied jar and safe references. Selecting crypto or bank wire gently emphasizes the vault; reduced motion disables this movement. Brand SVGs stay separate and retain their original colors. The previous chrome-glass tile asset remains unused.
+
+The mobile rating is a single generated badge at `public/assets/mobile/platinum-rating.png`, replacing the separate text, stars and drawn laurel. The bento platform card uses `public/assets/generated/platform-wallpaper.png`; the separate device showcase remains intact. Exact prompts for all four new images are recorded in [payment-editorial-prompts.json](public/assets/generated/payment-editorial-prompts.json).

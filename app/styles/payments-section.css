@@ -1,30 +1,35 @@
 ﻿.payments-section { overflow: clip; }
-.payments-card { position: relative; }
-.payments-heading { text-align: center; }
-.payments-heading .eyebrow { margin-bottom: 20px; }
-.payments-heading .h-lg { font-size: clamp(32px,3.8vw,52px); }
-.payments-heading .lede { margin-top: 18px; font-size: 15px; }
-.payment-methods { display: grid; grid-template-columns: repeat(7,minmax(0,1fr)); gap: 10px; margin-top: 44px; padding: 12px; border: 1px solid var(--line); border-radius: 24px; background: linear-gradient(130deg,color-mix(in srgb,var(--ink) 4%,var(--panel)),var(--panel)); }
-.payment-methods button { position: relative; display: flex; flex-direction: column; align-items: center; min-width: 0; padding: 10px 0 24px; border: 1px solid transparent; border-radius: 17px; transition: background .25s,border-color .25s; }
-.payment-methods button:hover { background: color-mix(in srgb,var(--ink) 4%,transparent); }
-.payment-methods button[aria-selected='true'] { border-color: var(--line); background: color-mix(in srgb,var(--ink) 5%,transparent); }
-.payment-art { position: relative; display: block; width: 100%; max-width: 156px; aspect-ratio: 1; transition: transform .45s cubic-bezier(.2,.8,.2,1); }
-.payment-art__glass { display: block; width: 100%; height: 100%; object-fit: contain; }
-.payment-art__brand,.payment-art__reflection { position: absolute; left: 50%; width: 49%; height: 34%; object-fit: contain; translate: -50% -50%; }
-.payment-art__brand { top: 43%; filter: drop-shadow(0 1px 1px #ffffff80); }
-.payment-art__reflection { top: 86%; transform: scaleY(-1); height: 18%; opacity: .15; mask-image: linear-gradient(to top,#000,transparent); pointer-events: none; }
-.payment-art--bitcoin .payment-art__brand,.payment-art--tether .payment-art__brand { width: 34%; }
-.payment-art--bitcoin .payment-art__reflection,.payment-art--tether .payment-art__reflection { width: 34%; }
-.payment-methods button:hover .payment-art { transform: translateY(-6px); }
-.payment-methods b { font-size: 12px; font-weight: 500; color: var(--ink-2); margin-top: 3px; }
-.payment-selected { position: absolute; bottom: 10px; width: 16px; height: 2px; border-radius: 3px; background: var(--accent); opacity: 0; transition: opacity .25s; }
-.payment-methods button[aria-selected='true'] .payment-selected { opacity: 1; }
-.payment-details { text-align: center; max-width: 76ch; margin: 26px auto 0; min-height: 52px; color: var(--ink-2); font-size: 13px; line-height: 1.8; }
-.payment-details p { animation: mobile-screen-in .25s ease; }
-.payments-note { color: var(--ink-3); text-align: center; font-size: 10px; line-height: 1.8; margin-top: 14px; }
-@media(max-width:980px) { .payment-methods { grid-template-columns: repeat(4,minmax(0,1fr)); max-width: 760px; margin-inline: auto; } .payment-methods button { padding-top: 0; } }
-@media(max-width:560px) { .payment-methods { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 7px; padding: 8px; margin-top: 28px; border-radius: 20px; } .payment-methods button { border-radius: 12px; padding-bottom: 22px; } .payment-methods b { font-size: 10px; } .payment-details { font-size: 12px; min-height: 86px; } }
-@media(prefers-reduced-motion:reduce) { .payment-art,.payment-methods button,.payment-selected { transition: none; } .payment-methods button:hover .payment-art { transform: none; } .payment-details p { animation: none; } }
-.payment-art::before { content: ''; position: absolute; left: 14%; top: 8%; width: 72%; height: 71%; border-radius: 15%; background: linear-gradient(135deg,#f8ffffb8,#d8e4ed9c); pointer-events: none; }
-.payment-art__glass { position: relative; z-index: 1; }
-.payment-art__brand,.payment-art__reflection { z-index: 2; }
+.payments-layout { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 80px; }
+.payments-story .eyebrow { margin-bottom: 20px; }
+.payments-story .h-lg { font-size: clamp(36px,3.8vw,54px); }
+.payments-story > .lede { font-size: 15px; margin-top: 22px; line-height: 1.8; }
+.payment-scene { position: relative; width: 100%; height: 480px; margin-top: 15px; isolation: isolate; }
+.payment-scene::before { content: ''; position: absolute; inset: 18% 10% 6%; z-index: -1; background: radial-gradient(ellipse,#ade51212,transparent 68%); }
+.payment-scene__jar { position: absolute; width: 75%; height: 100%; object-fit: contain; left: -3%; top: 0; transition: transform .55s,filter .55s; }
+.payment-scene__vault { position: absolute; width: 49%; height: 67%; object-fit: contain; right: -2%; bottom: -8px; filter: drop-shadow(-12px 12px 18px #0003); transition: transform .55s; }
+.payment-scene[data-focus='vault'] .payment-scene__vault { transform: translateY(-14px) scale(1.04); }
+.payment-scene[data-focus='vault'] .payment-scene__jar { transform: translateX(-5px); filter: brightness(.92); }
+.payments-options { border-top: 1px solid var(--line); padding-top: 24px; }
+.payments-options__heading { display: flex; justify-content: space-between; align-items: center; gap: 15px; margin-bottom: 22px; }
+.payments-options__heading h3 { font-size: 21px; font-weight: 500; letter-spacing: -.02em; }
+.payments-options__heading > span { font-size: 10px; color: var(--ink-3); letter-spacing: .08em; text-transform: uppercase; }
+.payment-list { border-bottom: 1px solid var(--line); }
+.payment-option { border-top: 1px solid var(--line); transition: background .2s; }
+.payment-option[data-open='true'] { background: color-mix(in srgb,var(--accent) 4%,transparent); border-radius: 12px; }
+.payment-option h4 { margin: 0; }
+.payment-option button { display: flex; align-items: center; gap: 15px; padding: 17px 12px; width: 100%; text-align: left; }
+.payment-option button:hover .payment-option__name { color: var(--accent); }
+.payment-mark { display: grid; place-items: center; width: 58px; height: 39px; border-radius: 8px; padding: 5px 7px; background: #fff; flex-shrink: 0; }
+.payment-mark img { width: 100%; height: 100%; object-fit: contain; }
+.payment-mark--bitcoin img,.payment-mark--tether img { width: 28px; }
+.payment-option__name { font-size: 15px; font-weight: 500; transition: color .2s; }
+.payment-option__category { font-size: 10px; color: var(--ink-3); margin-left: auto; }
+.payment-option__toggle { font-size: 22px; width: 20px; text-align: center; color: var(--ink-3); font-weight: 300; }
+.payment-option[data-open='true'] .payment-option__toggle { color: var(--accent); }
+.payment-option__details { padding: 0 32px 20px 85px; font-size: 13px; line-height: 1.8; color: var(--ink-2); animation: mobile-screen-in .2s ease; }
+.payment-option__details[hidden] { display: none; }
+.payments-note { font-size: 10px; color: var(--ink-3); line-height: 1.8; margin-top: 20px; max-width: 65ch; }
+@media(max-width:1180px) { .payments-layout { gap: 40px; } .payment-scene { height: 430px; } .payment-option__category { display: none; } .payment-option__toggle { margin-left: auto; } }
+@media(max-width:760px) { .payments-layout { grid-template-columns: 1fr; gap: 28px; } .payments-story { text-align: center; } .payment-scene { width: min(480px,100%); height: 370px; margin-inline: auto; margin-top: 20px; } .payments-options__heading h3 { font-size: 19px; } .payment-option__category { display: block; } }
+@media(max-width:420px) { .payment-scene { height: 310px; } .payment-option__category { display: none; } .payment-option button { gap: 12px; padding-inline: 7px; } .payment-option__details { padding: 0 14px 19px 77px; font-size: 12px; } }
+@media(prefers-reduced-motion:reduce) { .payment-scene__jar,.payment-scene__vault,.payment-option,.payment-option__name { transition: none; } .payment-scene[data-focus='vault'] .payment-scene__vault,.payment-scene[data-focus='vault'] .payment-scene__jar { transform: none; } .payment-option__details { animation: none; } }
