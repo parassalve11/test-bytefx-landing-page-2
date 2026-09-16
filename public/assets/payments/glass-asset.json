@@ -1,0 +1,7 @@
+﻿{
+  "mode": "built-in image_gen",
+  "asset": "chrome-glass.png",
+  "prompt": "Use case: product-mockup. Asset: reusable transparent glass tile beneath real payment brand logos on a premium website. Create ONE elegant square clear optical-glass tile with rounded corners, viewed nearly straight-on with a tiny amount of visible thickness on right and bottom edges. Chrome polished bevel, luminous neutral white edges, perfectly smooth frosted transparent face with a subtle pearlescent highlight. The face is EMPTY and neutral, absolutely no symbols, no logos, no letters. It must remain clear enough for a real colored brand logo to be overlaid in the website. Tile occupies central 70 percent width and upper 65 percent height. Below it a soft short mirrored glass reflection fades smoothly into transparent alpha, with delicate contact shadow. Genuine transparent alpha background. Subtle realistic studio light, premium restrained appearance, no gold, no blue tint, no green tint, no black solid face, no pedestal, no background scene. Square 1:1 composition. Entire object and reflection visible.",
+  "brandLogos": "Separate original-color SVGs overlaid in HTML; not generated",
+  "mastercard": "https://github.com/aaronfagan/svg-credit-card-payment-icons/blob/main/logo/mastercard.svg"
+}

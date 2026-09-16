@@ -1,31 +1,34 @@
-﻿.mobile-section { overflow: clip; }
-.mobile-showcase { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 80px; }
-.mobile-copy > .eyebrow { margin-bottom: 22px; }
-.mobile-copy .h-lg { font-size: clamp(38px,4vw,59px); line-height: 1.08; }
-.mobile-lede { max-width: 40ch; margin-top: 26px; color: var(--ink-2); font-size: 16px; line-height: 1.8; }
-.mobile-install { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 32px; }
-.mobile-availability { color: var(--ink-3); font-size: 11px; }
-.app-store-button { display: inline-flex; align-items: center; gap: 12px; padding: 12px 16px; min-height: 64px; border: 1px solid #3b3b3b; border-radius: 12px; background: #101010; color: #fff; transition: border-color .2s,transform .2s; }
-.app-store-button:hover { border-color: var(--brand); transform: translateY(-2px); }
-.app-store-button small { display: block; font-size: 9px; letter-spacing: .12em; line-height: 1.4; }
-.app-store-button b { display: block; font-size: 21px; font-weight: 500; line-height: 1.3; white-space: nowrap; }
-.mobile-qr { display: flex; align-items: center; gap: 20px; width: fit-content; margin-top: 28px; }
-.mobile-qr img { width: 112px; height: 112px; border-radius: 9px; image-rendering: pixelated; }
-.mobile-qr span { color: var(--ink-2); font-size: 13px; line-height: 1.8; }
-.mobile-qr b { color: var(--ink-3); font-weight: 400; font-size: 11px; }
-.mobile-duo { position: relative; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); align-items: start; gap: 18px; padding: 10px 6px 60px; isolation: isolate; }
-.mobile-device { min-width: 0; width: 100%; position: relative; margin: 0; transition: translate .65s cubic-bezier(.2,.8,.2,1); }
-.mobile-device--dashboard { margin-top: 45px; }
-.mobile-device--terminal { z-index: 1; }
-.mobile-duo:hover .mobile-device--dashboard { translate: -4px -8px; }
-.mobile-duo:hover .mobile-device--terminal { translate: 4px -12px; }
-.mobile-device__rim { display: block; padding: 6px; border: 2px solid #626761; border-radius: 36px; background: linear-gradient(120deg,#868b85,#161816 15%,#080908 80%,#7d827a); box-shadow: 0 24px 40px #0003,0 0 0 2px #151915,inset 0 0 0 1px #c4c5ba; position: relative; }
-.mobile-device__rim img { display: block; width: 100%; height: auto; border-radius: 27px; background: white; }
-.mobile-device__camera { position: absolute; z-index: 1; top: 13px; left: 50%; transform: translateX(-50%); width: 28%; height: 15px; border-radius: 20px; background: #080909; box-shadow: inset -8px 0 8px #202422; }
+﻿.mobile-section { position: relative; isolation: isolate; overflow: hidden; background: radial-gradient(ellipse at 88% 20%,#79cdff 0%,#399df0 30%,transparent 60%),radial-gradient(ellipse at 28% 0%,#70b5e6 0%,transparent 43%),linear-gradient(115deg,#0756b4,#1377d8 65%,#58b7f8); color: #fff; }
+.mobile-showcase { position: relative; min-height: 810px; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 36px; }
+.mobile-copy { position: relative; z-index: 2; padding: 72px 0 78px; }
+.mobile-copy .eyebrow { color: #f1f7ff; letter-spacing: .23em; font-size: 13px; margin-bottom: 20px; }
+.mobile-copy h2 { font-size: clamp(52px,5.6vw,82px); line-height: 1.04; letter-spacing: -.045em; font-weight: 760; color: #fff; }
+.mobile-copy h2 span { color: #7ae2ff; }
+.mobile-lede { max-width: 47ch; font-size: 18px; line-height: 1.5; margin-top: 28px; color: #fff; font-weight: 450; }
+.mobile-install { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 27px; }
+.mobile-store-badge { display: inline-flex; align-items: center; gap: 9px; min-height: 48px; padding: 6px 13px; border: 1px solid #b8d1e6; border-radius: 7px; color: white; background: #030303; transition: transform .2s,box-shadow .2s; }
+a.mobile-store-badge:hover { transform: translateY(-3px); box-shadow: 0 7px 18px #003b7b50; }
+.mobile-store-badge small { display: block; font-size: 9px; line-height: 1.2; }
+.mobile-store-badge b { display: block; font-size: 20px; line-height: 1.15; font-weight: 600; }
+.mobile-store-badge--pending small { font-size: 8px; letter-spacing: .03em; }
+.mobile-download-row { display: flex; align-items: center; gap: 30px; margin-top: 27px; }
+.mobile-qr { display: flex; flex-direction: column; align-items: flex-start; gap: 7px; color: #fff; }
+.mobile-qr img { width: 120px; height: 120px; border-radius: 8px; image-rendering: pixelated; }
+.mobile-qr b { font-size: 13px; line-height: 1.3; font-weight: 650; }
+.mobile-qr > span { font-size: 10px; line-height: 1.3; }
+.mobile-rating { border-left: 1px solid #b6dcffad; padding: 10px 0 0 30px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.mobile-rating__stars { display: flex; gap: 3px; }
+.mobile-rating__stars svg { width: 28px; height: 28px; filter: drop-shadow(0 2px 2px #31527d80); }
+.mobile-rating strong { font-size: 58px; line-height: 1; font-weight: 750; letter-spacing: -.06em; color: #d0eaff; text-shadow: 0 2px 4px #16509466; }
+.mobile-rating > span { font-size: 11px; color: #d5edff; margin-top: 4px; }
+.mobile-rating__laurel { width: 95px; height: 32px; filter: drop-shadow(0 2px 2px #144e9c60); }
+.mobile-art { position: absolute; right: -32px; top: 0; width: 660px; height: 100%; pointer-events: none; }
+.mobile-art__hand { position: absolute; width: 660px; max-width: none; height: 880px; top: -69px; right: -24px; object-fit: contain; filter: drop-shadow(0 14px 18px #06488130); }
+.mobile-art__compact { display: none; }
 .qr-frame { width: 196px; height: 196px; padding: 0; }
 .qr-frame img { image-rendering: pixelated; border-radius: 10px; }
 @keyframes mobile-screen-in { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: none; } }
-@media(max-width:1180px) { .mobile-showcase { gap: 40px; } .mobile-duo { gap: 12px; } }
-@media(max-width:980px) { .mobile-showcase { grid-template-columns: 1fr; gap: 44px; } .mobile-copy { grid-row: 1; max-width: 660px; margin-inline: auto; text-align: center; } .mobile-lede { margin-inline: auto; } .mobile-install { justify-content: center; } .mobile-qr { margin-inline: auto; text-align: left; } .mobile-duo { width: min(580px,100%); margin-inline: auto; } }
-@media(max-width:560px) { .mobile-showcase { gap: 36px; } .mobile-duo { padding: 10px 4px 35px; gap: 12px; } .mobile-device--dashboard { margin-top: 30px; } .mobile-device__rim { padding: 4px; border-radius: 25px; } .mobile-device__rim img { border-radius: 19px; } .mobile-device__camera { top: 10px; height: 10px; } .mobile-install { gap: 14px; } }
-@media(prefers-reduced-motion:reduce) { .mobile-device { transition: none; } .mobile-duo:hover .mobile-device { translate: none; } }
+@media(max-width:1180px) and (min-width:981px) { .mobile-art { right: -110px; } .mobile-copy { max-width: 520px; } .mobile-lede { max-width: 40ch; font-size: 16px; } .mobile-copy h2 { font-size: 66px; } }
+@media(max-width:980px) { .mobile-showcase { grid-template-columns: 1fr; gap: 0; min-height: 0; } .mobile-copy { text-align: center; padding: 64px 0 40px; max-width: 620px; margin-inline: auto; } .mobile-lede { margin-inline: auto; font-size: 16px; } .mobile-copy h2 { font-size: 64px; } .mobile-install,.mobile-download-row { justify-content: center; } .mobile-art { position: relative; width: 100%; height: auto; right: auto; padding-bottom: 50px; } .mobile-art__hand { display: none; } .mobile-art__compact { display: block; position: relative; width: 290px; margin-inline: auto; padding: 6px; border: 2px solid #788a99; border-radius: 38px; background: #13191e; box-shadow: 0 22px 45px #06428566,inset 0 0 0 1px #d2d9e1; } .mobile-art__compact img { width: 100%; height: auto; border-radius: 29px; } .mobile-art__camera { position: absolute; z-index: 1; top: 14px; left: 50%; translate: -50% 0; width: 28%; height: 15px; background: #05070a; border-radius: 20px; } }
+@media(max-width:560px) { .mobile-copy { padding-top: 48px; } .mobile-copy h2 { font-size: clamp(45px,12vw,64px); } .mobile-copy .eyebrow { font-size: 11px; } .mobile-lede { font-size: 15px; } .mobile-download-row { gap: 18px; } .mobile-rating { padding-left: 18px; } .mobile-rating strong { font-size: 48px; } .mobile-rating__stars svg { width: 23px; height: 23px; } .mobile-rating > span { font-size: 9px; } .mobile-qr img { width: 112px; height: 112px; } .mobile-qr b { font-size: 11px; } .mobile-qr > span { font-size: 8px; } .mobile-install { gap: 10px; } .mobile-store-badge { padding-inline: 10px; } .mobile-store-badge b { font-size: 18px; } .mobile-art__compact { width: min(260px,85%); } }
+@media(prefers-reduced-motion:reduce) { .mobile-store-badge { transition: none; } a.mobile-store-badge:hover { transform: none; } }

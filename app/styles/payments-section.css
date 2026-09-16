@@ -1,38 +1,30 @@
-﻿.payments-section { padding-top: 24px; }
-.payments-card { position: relative; isolation: isolate; overflow: hidden; border: 1px solid color-mix(in srgb,var(--accent) 22%,var(--line)); border-radius: 28px; padding: 48px; background: linear-gradient(120deg,color-mix(in srgb,var(--accent) 7%,var(--panel)),var(--panel) 65%); }
-.payments-card::before { content: ''; position: absolute; z-index: -1; width: 600px; height: 600px; border: 1px solid color-mix(in srgb,var(--accent) 14%,transparent); border-radius: 50%; right: -220px; top: -400px; box-shadow: 0 0 0 45px color-mix(in srgb,var(--accent) 3%,transparent),0 0 0 90px color-mix(in srgb,var(--accent) 2%,transparent); pointer-events: none; }
-.payments-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; }
+﻿.payments-section { overflow: clip; }
+.payments-card { position: relative; }
+.payments-heading { text-align: center; }
 .payments-heading .eyebrow { margin-bottom: 20px; }
 .payments-heading .h-lg { font-size: clamp(32px,3.8vw,52px); }
-.payments-heading .lede { font-size: 14px; margin-top: 20px; }
-.payments-heading > a { flex-shrink: 0; }
-.payment-methods { display: grid; grid-template-columns: repeat(7,minmax(0,1fr)); gap: 12px; margin-top: 36px; }
-.payment-methods button { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; min-width: 0; min-height: 145px; padding: 22px 8px; background: color-mix(in srgb,var(--ink) 3%,var(--panel)); border: 1px solid var(--line); border-radius: 16px; transition: transform .25s,border-color .25s,background .25s; }
-.payment-methods button:hover { transform: translateY(-5px); border-color: var(--accent); }
-.payment-methods button[aria-selected='true'] { background: color-mix(in srgb,var(--accent) 10%,var(--panel)); border-color: var(--accent); }
-.payment-logo { display: grid; place-items: center; width: 72px; height: 48px; border-radius: 9px; padding: 7px 10px; background: #fff; }
-.payment-logo img { width: 100%; height: 100%; object-fit: contain; }
-.payment-logo--bitcoin img,.payment-logo--tether img { width: 32px; }
-.payment-methods b { font-size: 12px; font-weight: 500; color: var(--ink-2); }
-.payment-methods__arrow { position: absolute; top: 7px; right: 10px; color: var(--accent); font-size: 12px; opacity: 0; }
-.payment-methods button[aria-selected='true'] .payment-methods__arrow { opacity: 1; }
-.payment-details { display: grid; grid-template-columns: 180px 1fr auto; align-items: center; gap: 30px; margin-top: 26px; padding: 24px 0; border-block: 1px solid var(--line); min-height: 120px; }
-.payment-details .eyebrow { font-size: 9px; }
-.payment-details h3 { font-size: 23px; font-weight: 500; margin-top: 8px; }
-.payment-details > p { font-size: 12px; line-height: 1.8; color: var(--ink-2); max-width: 60ch; }
-.payment-details > a { display: inline-flex; gap: 12px; color: var(--accent); font-size: 11px; }
-.payments-note { color: var(--ink-3); font-size: 10px; line-height: 1.8; max-width: 90ch; margin-top: 20px; }
-@media(max-width:1100px) { .payments-card { padding: 32px; } .payment-methods { gap: 8px; } .payment-logo { width: 62px; } .payment-details { grid-template-columns: 140px 1fr; } .payment-details > a { grid-column: 2; } }
-@media(max-width:760px) { .payments-card { padding: 25px 20px; border-radius: 20px; } .payments-heading { display: block; } .payments-heading > a { margin-top: 22px; } .payment-methods { grid-template-columns: repeat(4,minmax(0,1fr)); } .payment-methods button { min-height: 114px; gap: 11px; padding: 18px 5px; } .payment-methods b { font-size: 10px; } .payment-logo { width: 58px; height: 40px; padding: 6px 8px; } .payment-details { grid-template-columns: 1fr; gap: 16px; } .payment-details > a { grid-column: 1; } }
-@media(max-width:420px) { .payment-methods { grid-template-columns: repeat(3,minmax(0,1fr)); } }
-@media(prefers-reduced-motion:reduce) { .payment-methods button { transition: none; } .payment-methods button:hover { transform: none; } }
-/* Clear brand marks set into frosted glass, with bevels and soft reflections. */
-.payment-methods button { background: linear-gradient(145deg,color-mix(in srgb,var(--ink) 10%,transparent),color-mix(in srgb,var(--panel) 70%,transparent) 65%); backdrop-filter: blur(18px); border-color: color-mix(in srgb,var(--ink) 17%,transparent); box-shadow: inset 0 1px 1px #ffffff25,inset 0 -1px 1px #0003,0 10px 24px #0001; overflow: hidden; }
-.payment-methods button::before { content: ''; position: absolute; inset: 0; background: linear-gradient(120deg,transparent 25%,#ffffff12 46%,transparent 67%); translate: -100% 0; transition: translate .65s; pointer-events: none; }
-.payment-methods button:hover::before { translate: 100% 0; }
-.payment-methods button[aria-selected='true'] { background: linear-gradient(135deg,color-mix(in srgb,var(--accent) 14%,transparent),color-mix(in srgb,var(--panel) 75%,transparent)); }
-.payment-logo { position: relative; isolation: isolate; background: linear-gradient(135deg,#ffffffef,#ecf1e5b8 45%,#ffffffd9); border: 1px solid #ffffffc9; box-shadow: inset 0 1px 1px #fff,inset 0 -2px 3px #7e887e45,0 7px 15px #0003; border-radius: 12px; backdrop-filter: blur(12px); -webkit-box-reflect: below 4px linear-gradient(transparent 65%,#ffffff12); transition: transform .3s,box-shadow .3s; }
-.payment-logo::after { content: ''; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(145deg,#ffffff50,transparent 50%); pointer-events: none; }
-.payment-logo img { position: relative; z-index: 1; }
-.payment-methods button:hover .payment-logo { transform: translateY(-3px); box-shadow: inset 0 1px 1px #fff,inset 0 -2px 3px #7e887e45,0 10px 18px #0004; }
-@media(prefers-reduced-motion:reduce) { .payment-logo,.payment-methods button::before { transition: none; } .payment-methods button:hover .payment-logo { transform: none; } .payment-methods button::before { display: none; } }
+.payments-heading .lede { margin-top: 18px; font-size: 15px; }
+.payment-methods { display: grid; grid-template-columns: repeat(7,minmax(0,1fr)); gap: 10px; margin-top: 44px; padding: 12px; border: 1px solid var(--line); border-radius: 24px; background: linear-gradient(130deg,color-mix(in srgb,var(--ink) 4%,var(--panel)),var(--panel)); }
+.payment-methods button { position: relative; display: flex; flex-direction: column; align-items: center; min-width: 0; padding: 10px 0 24px; border: 1px solid transparent; border-radius: 17px; transition: background .25s,border-color .25s; }
+.payment-methods button:hover { background: color-mix(in srgb,var(--ink) 4%,transparent); }
+.payment-methods button[aria-selected='true'] { border-color: var(--line); background: color-mix(in srgb,var(--ink) 5%,transparent); }
+.payment-art { position: relative; display: block; width: 100%; max-width: 156px; aspect-ratio: 1; transition: transform .45s cubic-bezier(.2,.8,.2,1); }
+.payment-art__glass { display: block; width: 100%; height: 100%; object-fit: contain; }
+.payment-art__brand,.payment-art__reflection { position: absolute; left: 50%; width: 49%; height: 34%; object-fit: contain; translate: -50% -50%; }
+.payment-art__brand { top: 43%; filter: drop-shadow(0 1px 1px #ffffff80); }
+.payment-art__reflection { top: 86%; transform: scaleY(-1); height: 18%; opacity: .15; mask-image: linear-gradient(to top,#000,transparent); pointer-events: none; }
+.payment-art--bitcoin .payment-art__brand,.payment-art--tether .payment-art__brand { width: 34%; }
+.payment-art--bitcoin .payment-art__reflection,.payment-art--tether .payment-art__reflection { width: 34%; }
+.payment-methods button:hover .payment-art { transform: translateY(-6px); }
+.payment-methods b { font-size: 12px; font-weight: 500; color: var(--ink-2); margin-top: 3px; }
+.payment-selected { position: absolute; bottom: 10px; width: 16px; height: 2px; border-radius: 3px; background: var(--accent); opacity: 0; transition: opacity .25s; }
+.payment-methods button[aria-selected='true'] .payment-selected { opacity: 1; }
+.payment-details { text-align: center; max-width: 76ch; margin: 26px auto 0; min-height: 52px; color: var(--ink-2); font-size: 13px; line-height: 1.8; }
+.payment-details p { animation: mobile-screen-in .25s ease; }
+.payments-note { color: var(--ink-3); text-align: center; font-size: 10px; line-height: 1.8; margin-top: 14px; }
+@media(max-width:980px) { .payment-methods { grid-template-columns: repeat(4,minmax(0,1fr)); max-width: 760px; margin-inline: auto; } .payment-methods button { padding-top: 0; } }
+@media(max-width:560px) { .payment-methods { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 7px; padding: 8px; margin-top: 28px; border-radius: 20px; } .payment-methods button { border-radius: 12px; padding-bottom: 22px; } .payment-methods b { font-size: 10px; } .payment-details { font-size: 12px; min-height: 86px; } }
+@media(prefers-reduced-motion:reduce) { .payment-art,.payment-methods button,.payment-selected { transition: none; } .payment-methods button:hover .payment-art { transform: none; } .payment-details p { animation: none; } }
+.payment-art::before { content: ''; position: absolute; left: 14%; top: 8%; width: 72%; height: 71%; border-radius: 15%; background: linear-gradient(135deg,#f8ffffb8,#d8e4ed9c); pointer-events: none; }
+.payment-art__glass { position: relative; z-index: 1; }
+.payment-art__brand,.payment-art__reflection { z-index: 2; }
