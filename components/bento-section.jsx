@@ -3,6 +3,7 @@ import { bento } from '@/lib/content';
 import Icon from './icon';
 import Reveal from './reveal';
 import SmartLink from './smart-link';
+import MarketExplorer from './market-explorer';
 
 export default function BentoSection() {
   const { markets, platforms, refer, partner } = bento;
@@ -21,26 +22,7 @@ export default function BentoSection() {
               <p className="lede">{markets.body}</p>
             </div>
 
-            <figure>
-              <Image
-                className="tile__art"
-                src={markets.image}
-                alt={markets.alt}
-                width={1254}
-                height={1254}
-              />
-            </figure>
-
-            <ul>
-              {markets.links.map((link) => (
-                <li key={link.label}>
-                  <SmartLink href={link.href}>
-                    {link.label}
-                    <Icon name="chevron" size={14} />
-                  </SmartLink>
-                </li>
-              ))}
-            </ul>
+            <MarketExplorer markets={markets} />
           </Reveal>
 
           {/* platforms */}
@@ -57,7 +39,9 @@ export default function BentoSection() {
               </SmartLink>
             </div>
 
-            <Image className="t-platforms__wallpaper" src="/assets/generated/platform-wallpaper.png" alt="" fill sizes="(max-width: 760px) 100vw, 800px" aria-hidden="true" />
+            <div className="t-platforms__visual" aria-hidden="true">
+              <Image className="t-platforms__wallpaper" src="/assets/generated/platform-orbit-wallpaper.webp" alt="" fill sizes="(max-width: 760px) 130vw, (max-width: 1180px) 65vw, 850px" />
+            </div>
           </Reveal>
 
           {/* refer */}

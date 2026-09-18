@@ -162,14 +162,24 @@ a.stat__go:hover, a.social:hover { color: #0f0f0f; }
   .closing__wing { transform: none; will-change: auto; }
 }
 /* A wallpaper-led platform tile contrasts with the three object-led cards. */
-.t-platforms.t-platforms--wallpaper { isolation: isolate; background: #10120f; min-height: 380px; }
-.t-platforms--wallpaper .t-platforms__wallpaper { object-fit: cover; object-position: center; z-index: -2; transition: transform .8s ease; }
-.t-platforms--wallpaper::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg,#070a08db 0%,#070a0870 50%,transparent 80%); pointer-events: none; }
-.t-platforms--wallpaper:hover .t-platforms__wallpaper { transform: scale(1.035); }
-.t-platforms--wallpaper .t-platforms__copy { width: 65%; max-width: 480px; padding: 38px; }
+.t-platforms.t-platforms--wallpaper { isolation: isolate; background: #080b08; min-height: 480px; }
+.t-platforms__visual { position: absolute; inset: 0; z-index: -2; pointer-events: none; }
+.t-platforms--wallpaper .t-platforms__wallpaper { object-fit: cover; object-position: center; transition: transform 1.2s cubic-bezier(.2,.65,.3,1); }
+.t-platforms--wallpaper::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg,#060906c9 0%,#0609068c 35%,#06090626 58%,transparent 80%); pointer-events: none; }
+@media (hover: hover) and (pointer: fine) { .t-platforms--wallpaper:hover .t-platforms__wallpaper { transform: scale(1.045); } }
+.t-platforms--wallpaper .t-platforms__copy { width: 57%; max-width: 470px; padding: 42px; }
 .t-platforms--wallpaper .h-md { color: #fff; }
 .t-platforms--wallpaper .tint,.t-platforms--wallpaper .eyebrow { color: #ade512; }
 .t-platforms--wallpaper .lede { color: #d3d8cf; }
-@media(max-width:1180px) { .t-platforms--wallpaper .t-platforms__copy { width: 80%; padding: 30px; } }
-@media(max-width:760px) { .t-platforms.t-platforms--wallpaper { min-height: 430px; align-items: flex-start; } .t-platforms--wallpaper .t-platforms__copy { width: 100%; padding: 28px; } .t-platforms--wallpaper .t-platforms__wallpaper { object-position: 65% center; } .t-platforms--wallpaper::after { background: linear-gradient(130deg,#070a08eb,#070a0890 60%,#070a0820); } }
+@media(max-width:1180px) {
+  .t-platforms.t-platforms--wallpaper { min-height: 540px; align-items: flex-start; }
+  .t-platforms--wallpaper .t-platforms__copy { width: 100%; max-width: 470px; padding: 30px; }
+  .t-platforms__visual { inset: 26% -16% -6% -10%; }
+  .t-platforms--wallpaper .t-platforms__wallpaper { object-position: 75% center; }
+  .t-platforms--wallpaper::after { background: linear-gradient(180deg,#080b08 0%,#080b08ed 27%,#080b089c 45%,#080b0812 73%,transparent); }
+}
+@media(max-width:760px) {
+  .t-platforms.t-platforms--wallpaper { min-height: 510px; }
+  .t-platforms--wallpaper .t-platforms__copy { padding: 28px; }
+}
 @media(prefers-reduced-motion:reduce) { .t-platforms--wallpaper .t-platforms__wallpaper { transition: none; } .t-platforms--wallpaper:hover .t-platforms__wallpaper { transform: none; } }

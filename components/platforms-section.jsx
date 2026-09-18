@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useRef, useState } from 'react';
 import { platformOptions } from '@/lib/platforms';
 import Reveal from './reveal';
+import PlatformLights from './platform-lights';
 
 export default function PlatformsSection() {
   const [selected,setSelected] = useState(1);
@@ -16,6 +17,7 @@ export default function PlatformsSection() {
   };
   return (
     <section className="platform-guide band" id="platform-guide" aria-labelledby="platform-guide-title">
+      <PlatformLights />
       <div className="shell">
         <Reveal className="platform-guide__heading">
           <p className="eyebrow">Your trading setup</p>
@@ -23,7 +25,7 @@ export default function PlatformsSection() {
           <p className="lede">A bigger picture at your desk. A closer connection on the move. Explore the tools that fit the way you trade.</p>
         </Reveal>
         <Reveal className="platform-stage">
-          <Image src="/assets/generated/platform-devices-front.png" alt="Front-facing laptop, tablet and smartphone displaying illustrative trading dashboards" width={1536} height={1024} sizes="(max-width: 980px) 95vw, 1000px" />
+          <Image src="/assets/platforms/bytefx-device-setup.webp" alt="ByteFX trading charts on a laptop, withdrawals on a tablet, and the mobile trading app on a phone" width={1536} height={1024} sizes="(max-width: 760px) 100vw, (max-width: 1148px) 96vw, 1100px" />
         </Reveal>
         <Reveal className="platform-guide__selector">
           <div className="platform-tabs" role="tablist" aria-label="Trading platforms">
