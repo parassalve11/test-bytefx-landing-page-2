@@ -8,32 +8,55 @@ import SmartLink from './smart-link';
 import ThemeToggle from './theme-toggle';
 
 const CLOSE_DELAY = 140;
+const REVEAL_ZONE = 96;
+const SCROLL_TOLERANCE = 6;
 
 
 export default function SiteHeader() {
   const [openId, setOpenId] = useState(null);
   const [drawer, setDrawer] = useState(false);
-  const [heroVisible, setHeroVisible] = useState(true);
+  const [hidden, setHidden] = useState(false);
   const [compact, setCompact] = useState(false);
   const timer = useRef(null);
 
-  /* Keep the opening screen immersive; navigation appears below the hero. */
+  /* Always visible at the top of the page. Scrolling down tucks the header
+     away; any scroll back up brings it straight back. Small movements are
+     accumulated so trackpad jitter never makes it flicker. */
   useEffect(() => {
-    const hero = document.getElementById('top');
-    const observer = new IntersectionObserver(([entry]) => {
-      setHeroVisible(entry.isIntersecting);
-      if (entry.isIntersecting) {
-        setOpenId(null);
-        setDrawer(false);
+    let lastY = Math.max(0, window.scrollY);
+    let frame = 0;
+
+    const update = () => {
+      frame = 0;
+      const y = Math.max(0, window.scrollY);
+      const delta = y - lastY;
+      setCompact(y > 24);
+
+      if (y < REVEAL_ZONE) {
+        setHidden(false);
+        lastY = y;
+        return;
       }
-    }, { rootMargin: '-1px 0px 0px 0px', threshold: 0 });
-    if (hero) observer.observe(hero);
-    const onScroll = () => setCompact(window.scrollY > 24);
-    onScroll();
+      if (Math.abs(delta) < SCROLL_TOLERANCE) return;
+
+      if (delta > 0) {
+        setHidden(true);
+        setOpenId(null);
+      } else {
+        setHidden(false);
+      }
+      lastY = y;
+    };
+
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+
+    update();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => {
-      observer.disconnect();
       window.removeEventListener('scroll', onScroll);
+      cancelAnimationFrame(frame);
     };
   }, []);
 
@@ -95,9 +118,7 @@ export default function SiteHeader() {
   return (
     <header
       className="masthead"
-      inert={heroVisible}
-      aria-hidden={heroVisible}
-      data-tucked={heroVisible ? 'true' : 'false'}
+      data-tucked={hidden && !drawer ? 'true' : 'false'}
       data-compact={compact ? 'true' : 'false'}
     >
       <div className="shell">

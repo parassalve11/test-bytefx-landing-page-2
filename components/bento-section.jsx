@@ -81,13 +81,15 @@ export default function BentoSection() {
               </SmartLink>
             </div>
 
-            <figure>
+            <figure className="t-partner__mark">
+              <span className="t-partner__halo" aria-hidden="true" />
               <Image
                 className="tile__art"
                 src={partner.image}
                 alt={partner.alt}
-                width={1448}
-                height={1086}
+                width={partner.width}
+                height={partner.height}
+                sizes="(max-width: 760px) 58vw, (max-width: 1180px) 34vw, 240px"
               />
             </figure>
           </Reveal>

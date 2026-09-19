@@ -21,6 +21,7 @@ const shapes = {
   pin: <path d="M12 1a8 8 0 0 0-8 8c0 6 8 14 8 14s8-8 8-14a8 8 0 0 0-8-8zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6z" fillRule="evenodd" />,
   badge: <path d="M2 3h20v18H2zm4 5v3h12V8zm0 6v2h8v-2z" fillRule="evenodd" />,
   globe: <path d="M12 1a11 11 0 1 0 0 22 11 11 0 0 0 0-22zM5 5l4-1 3 4-3 4H5l-2-2zm5 8 7-1 3 3-5 6-3-1-1-4z" fillRule="evenodd" />,
+  bell: <path d="M12 2a6.5 6.5 0 0 0-6.5 6.5v4.2L3.2 17h17.6l-2.3-4.3V8.5A6.5 6.5 0 0 0 12 2zM8.8 19a3.2 3.2 0 0 0 6.4 0z" />,
   shield: <path d="m12 1 9 4v7c0 5-6 9-9 11-3-2-9-6-9-11V5zm-5 10-2 2 5 5 9-9-2-2-7 7z" fillRule="evenodd" />,
   spark: <path d="m12 0 3.5 8.5L24 12l-8.5 3.5L12 24l-3.5-8.5L0 12l8.5-3.5z" />,
   qr: <path d="M1 1h9v9H1zm3 3v3h3V4zm10-3h9v9h-9zm3 3v3h3V4zM1 14h9v9H1zm3 3v3h3v-3zm10-3h4v4h-4zm6 0h3v6h-3zm-6 6h6v3h-6zm7 1h2v2h-2z" fillRule="evenodd" />,

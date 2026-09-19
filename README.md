@@ -25,7 +25,7 @@ Dark is the default. The header toggle remembers an explicit light/dark preferen
 ## Page structure
 
 1. Header with desktop mega menus and a mobile drawer.
-2. Full-height hero placeholder with plain "Hero section under progress" text.
+2. Full-height hero carousel with four slides: Mindset, Stay cool (the trading cat), Global markets and Precious metals. Artwork lives in `public/assets/hero/`; copy, layout and focal points in `hero` inside `lib/content.js`.
 3. **Trade with a global broker:** eight cards in a draggable carousel. The three added cards cover account choice, demo practice and mobile access.
 4. Markets with glass currency tokens and metal bars; platforms with a sculptural glass wallpaper; referral and partnership bento cards.
 5. Centered platform section with a new front-facing laptop, tablet and phone image; glass MetaTrader 4, MetaTrader 5 and TradingView capsules with official standalone app icons and a single changing description.
@@ -43,7 +43,7 @@ The initial prompts, filenames, palette and generation mode are recorded in [pro
 
 ## Content and destinations
 
-Copy and destinations live in `lib/content.js`. Destination URLs that have not been supplied remain `href: null`; `SmartLink` renders those as non-interactive labels. Account registration, demo, platform downloads, social profiles and other destination pages still need their approved URLs. The hero is a plain placeholder.
+Copy and destinations live in `lib/content.js`. Destination URLs that have not been supplied remain `href: null`; `SmartLink` renders those as non-interactive labels. Account registration, demo, platform downloads, social profiles and other destination pages still need their approved URLs.
 
 The navbar and mobile-section QR codes encode `https://play.google.com/store/apps/details?id=com.bytefx.app&hl=en_IN`. The real code at `public/app-qr.png` was generated with the QRCode library and independently decoded from both rendered locations.
 
@@ -55,7 +55,10 @@ Current platform artwork: `public/assets/generated/platform-devices-front.png`. 
 
 ## Interactions
 
-- Header hides on downward scroll and returns on upward scroll; a mobile drawer and visible keyboard focus keep it accessible. Scrolling down closes hover menus, and mouse focus does not prevent the header from hiding.
+- Header is visible at the top of the page (including over the hero), hides on downward scroll and returns on any upward scroll. Small scroll movements are ignored so it never flickers. A mobile drawer and visible keyboard focus keep it accessible, and scrolling down closes hover menus.
+- Hero slides can be dragged with the mouse, swiped on touch screens and trackpads, changed with the arrow keys, or picked from the tabs. Slides advance every 8 seconds; the active tab shows progress. Autoplay pauses while dragging, while the controls are hovered, on keyboard focus, when the hero is off screen or the tab is hidden, and can be paused with the button. Reduced-motion preferences turn off autoplay, parallax and scene effects.
+- Hero scene effects: mouse parallax and a cursor light on every slide; a lens glint, headphone sound waves and platform notifications on the cat slide; falling light streaks on the markets slide.
+- The partner card uses the glass ByteFX mark (`public/assets/partner/bytefx-glass-mark.webp`, cut out from the supplied artwork with a transparent background).
 - Menus support hover, click and Escape. Closed panels use the React boolean `inert` attribute.
 - Broker cards support mouse dragging, native touch scrolling and previous/next buttons with disabled end states.
 - Reveals use a shared requestAnimationFrame position check. Reduced motion disables decorative movement.
