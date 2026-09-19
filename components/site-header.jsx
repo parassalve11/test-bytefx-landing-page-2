@@ -13,33 +13,29 @@ const CLOSE_DELAY = 140;
 export default function SiteHeader() {
   const [openId, setOpenId] = useState(null);
   const [drawer, setDrawer] = useState(false);
-  const [tucked, setTucked] = useState(false);
+  const [heroVisible, setHeroVisible] = useState(true);
   const [compact, setCompact] = useState(false);
   const timer = useRef(null);
-  const lastY = useRef(0);
 
-  /* --- hide on scroll down, reveal on scroll up ------------------------- */
+  /* Keep the opening screen immersive; navigation appears below the hero. */
   useEffect(() => {
-    lastY.current = window.scrollY;
-
-    const onScroll = () => {
-      const y = Math.max(0, window.scrollY);
-      const delta = y - lastY.current;
-      setCompact(y > 24);
-      if (y < 80) {
-        setTucked(false);
-      } else if (Math.abs(delta) >= 8 && !drawer) {
-        setTucked(delta > 0);
-        if (delta > 0) setOpenId(null);
-      } else {
-        return;
+    const hero = document.getElementById('top');
+    const observer = new IntersectionObserver(([entry]) => {
+      setHeroVisible(entry.isIntersecting);
+      if (entry.isIntersecting) {
+        setOpenId(null);
+        setDrawer(false);
       }
-      lastY.current = y;
-    };
-
+    }, { rootMargin: '-1px 0px 0px 0px', threshold: 0 });
+    if (hero) observer.observe(hero);
+    const onScroll = () => setCompact(window.scrollY > 24);
+    onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, [drawer]);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, []);
 
   /* --- desktop breakpoint resets ---------------------------------------- */
   useEffect(() => {
@@ -99,10 +95,9 @@ export default function SiteHeader() {
   return (
     <header
       className="masthead"
-      onFocusCapture={(event) => {
-        if (event.target.matches(':focus-visible')) setTucked(false);
-      }}
-      data-tucked={tucked ? 'true' : 'false'}
+      inert={heroVisible}
+      aria-hidden={heroVisible}
+      data-tucked={heroVisible ? 'true' : 'false'}
       data-compact={compact ? 'true' : 'false'}
     >
       <div className="shell">

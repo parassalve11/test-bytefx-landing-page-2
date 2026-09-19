@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
+import Icon from './icon';
 
 export default function MarketExplorer({ markets }) {
   const [selected, setSelected] = useState(0);
@@ -17,7 +18,7 @@ export default function MarketExplorer({ markets }) {
           {markets.categories.map((market, index) => (
             <button key={market.id} type="button" className={`market-explorer__choice market-explorer__choice--${market.id}`}
               aria-pressed={selected === index} aria-controls="market-explorer-detail" onClick={() => setSelected(index)}>
-              <span aria-hidden="true">{market.symbol}</span>{market.label}
+              <span aria-hidden="true"><Icon name={`market-${market.id}`} size={17} /></span>{market.label}
             </button>
           ))}
         </div>
