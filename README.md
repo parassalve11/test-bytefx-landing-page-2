@@ -45,6 +45,8 @@ The precious-metals hero uses newly generated gold and silver bullion with a flo
 
 ## Content and destinations
 
+The eight broker cards use a custom charcoal, blackened titanium and smoked-glass sculpture series in `public/assets/broker/sculptures/`. Each keeps lime accents, transparent edges and a fading mirrored reflection, with new forms for leverage, spreads, instruments, execution, support, account choice, demo practice and device access. Original PNGs and 768 px WebPs are saved together; the exact built-in image_gen prompts are in [sculptures/prompts.json](public/assets/broker/sculptures/prompts.json).
+
 Copy and destinations live in `lib/content.js`. Destination URLs that have not been supplied remain `href: null`; `SmartLink` renders those as non-interactive labels. Account registration, demo, platform downloads, social profiles and other destination pages still need their approved URLs.
 
 The navbar and mobile-section QR codes encode `https://play.google.com/store/apps/details?id=com.bytefx.app&hl=en_IN`. The real code at `public/app-qr.png` was generated with the QRCode library and independently decoded from both rendered locations.

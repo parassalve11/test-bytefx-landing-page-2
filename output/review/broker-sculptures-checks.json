@@ -1,0 +1,63 @@
+{
+  "images": [
+    {
+      "alt": "A charcoal balance mechanism lifting a smoked-glass cube, with a lime sphere and mirrored reflection",
+      "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fbroker%2Fsculptures%2Fleverage.webp&w=256&q=75",
+      "width": 230,
+      "height": 230
+    },
+    {
+      "alt": "Two charcoal precision jaws meeting across a narrow lime-lit gap, reflected below",
+      "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fbroker%2Fsculptures%2Fspreads.webp&w=256&q=75",
+      "width": 230,
+      "height": 230
+    },
+    {
+      "alt": "Five sculptural market objects connected to a charcoal hub, with glass details and soft reflections",
+      "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fbroker%2Fsculptures%2Finstruments.webp&w=256&q=75",
+      "width": 230,
+      "height": 230
+    },
+    {
+      "alt": "A crystal signal passing through three charcoal frames along a lime filament, with a mirrored reflection",
+      "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fbroker%2Fsculptures%2Fexecution.webp&w=256&q=75",
+      "width": 230,
+      "height": 230
+    },
+    {
+      "alt": "Layered charcoal and smoked-glass conversation forms with three lime spheres and a soft reflection",
+      "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fbroker%2Fsculptures%2Fsupport.webp&w=256&q=75",
+      "width": 230,
+      "height": 230
+    },
+    {
+      "alt": "Three differently shaped charcoal and crystal keys in a reflective dock with lime inlays",
+      "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fbroker%2Fsculptures%2Faccounts.webp&w=256&q=75",
+      "width": 230,
+      "height": 230
+    },
+    {
+      "alt": "Trading candlesticks in a smoked-glass practice cube surrounded by a replay loop, reflected below",
+      "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fbroker%2Fsculptures%2Fdemo.webp&w=256&q=75",
+      "width": 230,
+      "height": 230
+    },
+    {
+      "alt": "Three hinged charcoal and glass device screens with lime charts on a shared reflective base",
+      "src": "http://localhost:3000/_next/image?url=%2Fassets%2Fbroker%2Fsculptures%2Fmobile.webp&w=256&q=75",
+      "width": 230,
+      "height": 230
+    }
+  ],
+  "layouts": [
+    "320px: no horizontal page overflow",
+    "390px: no horizontal page overflow",
+    "768px: no horizontal page overflow"
+  ],
+  "checks": [
+    "All eight new assets loaded",
+    "Desktop carousel end state and previous button work",
+    "Dark and light theme screenshots saved",
+    "No browser runtime or console errors"
+  ]
+}

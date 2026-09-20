@@ -97,8 +97,9 @@ export default function BrokerSection() {
                 <Image
                   src={card.image}
                   alt={card.alt}
-                  width={1254}
-                  height={1254}
+                  width={768}
+                  height={768}
+                  sizes="230px"
                   draggable={false}
                 />
               </figure>
