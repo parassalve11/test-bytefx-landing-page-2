@@ -1,0 +1,19 @@
+{
+  "what": "Testimonial profile pictures.",
+  "source": "https://thispersondoesnotexist.com/ (StyleGAN2, FFHQ-trained)",
+  "why": "These faces are synthesised, not photographs of real people. A real, identifiable person's photograph must not be attached to a fabricated testimonial, and the stock-library portraits that usually fill this slot are recognisable from other sites. Every face here is public domain and depicts nobody.",
+  "processing": "Squared on centre at 88% of the frame, nudged down 6% to keep the chin in shot, resized to 256x256 and encoded as WebP q86.",
+  "note": "The quotes these accompany are placeholders. Replace both the quotes and these pictures with real, consented customer material before launch.",
+  "faces": {
+    "kamil": "Kamil W., Poland",
+    "adaeze": "Adaeze O., Nigeria",
+    "haruto": "Haruto S., Japan",
+    "lena": "Lena F., Germany",
+    "mateus": "Mateus A., Brazil",
+    "putri": "Putri N., Indonesia",
+    "oskar": "Oskar L., Sweden",
+    "linh": "Linh T., Vietnam",
+    "diego": "Diego C., Peru",
+    "nadia": "Nadia M., South Africa"
+  }
+}

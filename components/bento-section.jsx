@@ -4,6 +4,7 @@ import Icon from './icon';
 import Reveal from './reveal';
 import SmartLink from './smart-link';
 import MarketExplorer from './market-explorer';
+import PlatformWallpaper from './platform-wallpaper';
 
 export default function BentoSection() {
   const { markets, platforms, refer, partner } = bento;
@@ -39,9 +40,7 @@ export default function BentoSection() {
               </SmartLink>
             </div>
 
-            <div className="t-platforms__visual" aria-hidden="true">
-              <Image className="t-platforms__wallpaper" src="/assets/generated/platform-orbit-wallpaper.webp" alt="" fill sizes="(max-width: 760px) 130vw, (max-width: 1180px) 65vw, 850px" />
-            </div>
+            <PlatformWallpaper src={platforms.image} alt="" />
           </Reveal>
 
           {/* refer */}

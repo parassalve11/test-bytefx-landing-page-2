@@ -8,8 +8,15 @@ import SmartLink from './smart-link';
 import ThemeToggle from './theme-toggle';
 
 const CLOSE_DELAY = 140;
+/* Hovering the nav on the way past it should not fire a mega menu. */
+const OPEN_DELAY = 120;
+/* Above this offset the header is always parked at the top of the page. */
 const REVEAL_ZONE = 96;
-const SCROLL_TOLERANCE = 6;
+/* How far the page has to travel in one direction before the header reacts.
+   Hiding is cheap to undo, so it is eager; coming back is deliberate, which
+   stops the bar from flying in and out over the content while reading. */
+const HIDE_TRAVEL = 18;
+const REVEAL_TRAVEL = 64;
 
 
 export default function SiteHeader() {
@@ -17,35 +24,48 @@ export default function SiteHeader() {
   const [drawer, setDrawer] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [compact, setCompact] = useState(false);
+  const [hovering, setHovering] = useState(false);
   const timer = useRef(null);
+  const openTimer = useRef(null);
+  /* read inside the scroll listener, which is registered once */
+  const held = useRef(false);
+  const openRef = useRef(null);
 
-  /* Always visible at the top of the page. Scrolling down tucks the header
-     away; any scroll back up brings it straight back. Small movements are
-     accumulated so trackpad jitter never makes it flicker. */
+  /* Always parked at the top of the page. Scrolling down tucks the header
+     away so it never sits on the content being read; a deliberate scroll back
+     up brings it straight back. Travel is accumulated per direction, so
+     trackpad jitter and momentum wobble cannot make it flicker. The bar also
+     stays put whenever it is being used: pointer over it, a menu open, or the
+     mobile drawer up. */
   useEffect(() => {
     let lastY = Math.max(0, window.scrollY);
+    let travel = 0;
     let frame = 0;
 
     const update = () => {
       frame = 0;
       const y = Math.max(0, window.scrollY);
       const delta = y - lastY;
+      lastY = y;
       setCompact(y > 24);
 
       if (y < REVEAL_ZONE) {
+        travel = 0;
         setHidden(false);
-        lastY = y;
         return;
       }
-      if (Math.abs(delta) < SCROLL_TOLERANCE) return;
+      if (delta === 0) return;
+      /* a change of direction starts the count again */
+      travel = Math.sign(travel) === Math.sign(delta) ? travel + delta : delta;
 
-      if (delta > 0) {
+      if (travel > HIDE_TRAVEL) {
+        if (held.current) return;
+        travel = 0;
         setHidden(true);
-        setOpenId(null);
-      } else {
+      } else if (travel < -REVEAL_TRAVEL) {
+        travel = 0;
         setHidden(false);
       }
-      lastY = y;
     };
 
     const onScroll = () => {
@@ -59,6 +79,14 @@ export default function SiteHeader() {
       cancelAnimationFrame(frame);
     };
   }, []);
+
+  /* An open menu or drawer pins the header down; closing one lets it tuck
+     again on the next scroll. */
+  useEffect(() => {
+    openRef.current = openId;
+    held.current = Boolean(openId) || drawer || hovering;
+    if (held.current) setHidden(false);
+  }, [openId, drawer, hovering]);
 
   /* --- desktop breakpoint resets ---------------------------------------- */
   useEffect(() => {
@@ -74,10 +102,15 @@ export default function SiteHeader() {
   /* --- the page should not scroll behind an open drawer ------------------ */
   useEffect(() => {
     if (!drawer) return undefined;
-    const previous = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
+    const { body } = document;
+    const previous = { overflow: body.style.overflow, padding: body.style.paddingRight };
+    /* removing the scrollbar would otherwise shift the whole page sideways */
+    const gap = window.innerWidth - document.documentElement.clientWidth;
+    body.style.overflow = 'hidden';
+    if (gap > 0) body.style.paddingRight = `${gap}px`;
     return () => {
-      document.body.style.overflow = previous;
+      body.style.overflow = previous.overflow;
+      body.style.paddingRight = previous.padding;
     };
   }, [drawer]);
 
@@ -92,34 +125,56 @@ export default function SiteHeader() {
     return () => document.removeEventListener('keydown', onKey);
   }, []);
 
-  const clearTimer = () => {
+  const clearTimers = useCallback(() => {
     if (timer.current) {
       clearTimeout(timer.current);
       timer.current = null;
     }
-  };
-
-  const hoverOpen = useCallback((id) => {
-    if (window.matchMedia('(max-width: 980px)').matches) return;
-    clearTimer();
-    setOpenId(id);
+    if (openTimer.current) {
+      clearTimeout(openTimer.current);
+      openTimer.current = null;
+    }
   }, []);
+
+  /* A panel only opens once the pointer has settled, so crossing the nav on
+     the way to the page below never throws a menu over the content. Once one
+     panel is open, switching between them is instant. */
+  const hoverOpen = useCallback(
+    (id) => {
+      if (window.matchMedia('(max-width: 980px)').matches) return;
+      clearTimers();
+      if (openRef.current) {
+        setOpenId(id);
+        return;
+      }
+      openTimer.current = setTimeout(() => setOpenId(id), OPEN_DELAY);
+    },
+    [clearTimers],
+  );
 
   const hoverClose = useCallback(() => {
     if (window.matchMedia('(max-width: 980px)').matches) return;
-    clearTimer();
+    clearTimers();
     timer.current = setTimeout(() => setOpenId(null), CLOSE_DELAY);
-  }, []);
+  }, [clearTimers]);
 
-  useEffect(() => clearTimer, []);
+  useEffect(() => clearTimers, [clearTimers]);
 
-  const toggle = (id) => setOpenId((current) => (current === id ? null : id));
+  const toggle = (id) => {
+    clearTimers();
+    setOpenId((current) => (current === id ? null : id));
+  };
 
   return (
     <header
       className="masthead"
-      data-tucked={hidden && !drawer ? 'true' : 'false'}
+      data-tucked={hidden && !drawer && !openId ? 'true' : 'false'}
       data-compact={compact ? 'true' : 'false'}
+      onPointerEnter={(event) => {
+        if (event.pointerType === 'touch') return;
+        setHovering(true);
+      }}
+      onPointerLeave={() => setHovering(false)}
     >
       <div className="shell">
         <div className="masthead__inner">

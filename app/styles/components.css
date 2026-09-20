@@ -795,9 +795,6 @@ a.mega__link:hover {
   scroll-snap-type: none;
   user-select: none;
 }
-.rail[data-dragging='true'] a {
-  pointer-events: none;
-}
 
 .stat {
   flex: 0 0 clamp(228px, 23vw, 252px);
@@ -849,23 +846,6 @@ a.mega__link:hover {
   min-height: 39px;
   max-width: 21ch;
 }
-.stat__go {
-  display: grid;
-  place-items: center;
-  width: 38px;
-  height: 38px;
-  margin-top: 16px;
-  border-radius: 50%;
-  border: 1px solid var(--line);
-  color: var(--ink-2);
-  transition: color 0.2s, border-color 0.2s, background 0.2s;
-}
-a.stat__go:hover {
-  color: #fff;
-  background: var(--accent);
-  border-color: var(--accent);
-}
-
 .rail-hint {
   display: flex;
   align-items: center;
@@ -930,12 +910,6 @@ a.stat__go:hover {
   scale: -1 1;
 }
 
-.voice-grid {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-}
 .voice {
   display: flex;
   flex-direction: column;
@@ -1523,11 +1497,6 @@ a.social:hover {
   }
   .footer__brand {
     grid-column: 1 / 3;
-  }
-  .voice-grid {
-    grid-template-columns: 1fr;
-    max-width: 620px;
-    margin-inline: auto;
   }
   .orbit {
     display: none;

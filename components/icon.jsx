@@ -5,6 +5,7 @@ const shapes = {
   'market-crypto': <g fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 7h5a2.5 2.5 0 0 1 0 5H9m0 0h5a2.5 2.5 0 0 1 0 5H9V7m2-2v2m3-2v2m-3 10v2m3-2v2"/></g>,
   'market-commodities': <g fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="m4 9 11-4 5 5-2 8-14 1-2-5 2-5Zm0 0 5 5 11-4M9 14l-1 5"/></g>,
   'market-shares': <g fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18M5 21V8h6v13m0 0V3h8v18M8 11v1m0 4v1m6-10h2m-2 4h2m-2 4h2"/></g>,
+  'star-empty': <g fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"><path d="m12 2.6 3 6.3 6.8.9-5 4.8 1.2 6.8L12 18l-6 3.4 1.2-6.8-5-4.8 6.8-.9z"/></g>,
   arrow: <path d="M3 10.5h12L10.5 6 13 3.5l8.5 8.5-8.5 8.5-2.5-2.5 4.5-4.5H3z" />,
   back: <path d="M21 10.5H9L13.5 6 11 3.5 2.5 12l8.5 8.5 2.5-2.5L9 13.5h12z" />,
   caret: <path d="m5 8 7 8 7-8z" />,

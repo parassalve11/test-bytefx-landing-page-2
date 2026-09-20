@@ -5,11 +5,10 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { broker } from '@/lib/content';
 import Icon from './icon';
 import Reveal from './reveal';
-import SmartLink from './smart-link';
 
 export default function BrokerSection() {
   const rail = useRef(null);
-  const drag = useRef({ active: false, startX: 0, startScroll: 0, moved: 0 });
+  const drag = useRef({ active: false, startX: 0, startScroll: 0 });
   const [dragging, setDragging] = useState(false);
   const [edges, setEdges] = useState({ start: true, end: false });
   const [overflows, setOverflows] = useState(false);
@@ -46,12 +45,7 @@ export default function BrokerSection() {
     if (event.pointerType === 'touch') return; // native momentum is better
     const el = rail.current;
     if (!el) return;
-    drag.current = {
-      active: true,
-      startX: event.clientX,
-      startScroll: el.scrollLeft,
-      moved: 0,
-    };
+    drag.current = { active: true, startX: event.clientX, startScroll: el.scrollLeft };
     setDragging(true);
     el.setPointerCapture?.(event.pointerId);
   };
@@ -61,7 +55,6 @@ export default function BrokerSection() {
     const el = rail.current;
     if (!el) return;
     const delta = event.clientX - drag.current.startX;
-    drag.current.moved = Math.abs(delta);
     el.scrollLeft = drag.current.startScroll - delta;
   };
 
@@ -112,17 +105,6 @@ export default function BrokerSection() {
 
               <p className="stat__value">{card.value}</p>
               <p className="stat__note">{card.note}</p>
-
-              <SmartLink
-                href={card.href}
-                className="stat__go"
-                aria-label={`More about ${card.title.toLowerCase()}`}
-                onClick={(event) => {
-                  if (drag.current.moved > 6) event.preventDefault();
-                }}
-              >
-                <Icon name="arrow" size={16} />
-              </SmartLink>
             </li>
           ))}
         </ul>
