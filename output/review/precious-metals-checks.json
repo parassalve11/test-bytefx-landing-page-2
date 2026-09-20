@@ -1,0 +1,10 @@
+[
+  "Fourth-slide float, reflection animation and pointer response pass",
+  "Layout 320x820 passes",
+  "Layout 390x844 passes",
+  "Layout 768x1024 passes",
+  "Layout 1024x768 passes",
+  "Tabs, next/previous wrap, mouse swipe, keyboard End and inactive animation pause pass",
+  "Reduced motion disables bullion scene effects and float",
+  "No browser runtime or console errors"
+]

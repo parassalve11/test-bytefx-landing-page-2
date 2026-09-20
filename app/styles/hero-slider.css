@@ -461,6 +461,71 @@
 }
 .hs-slide[data-active='true'] .hs-rain i { animation-play-state: running; }
 
+/* --- slide 4: floating bullion and reflections ----------------------------- */
+
+@media (min-width: 761px) {
+  .hs-slide[data-scene='metals'] .hs-shade {
+    background:
+      linear-gradient(180deg, rgb(6 8 6 / 0.62) 0%, transparent 20%),
+      linear-gradient(0deg, rgb(6 8 6 / 0.96) 0%, rgb(6 8 6 / 0.55) 17%, transparent 36%),
+      linear-gradient(90deg, rgb(6 8 6 / 0.96) 0%, rgb(6 8 6 / 0.85) 33%, rgb(6 8 6 / 0.55) 48%, rgb(6 8 6 / 0.16) 61%, transparent 74%);
+  }
+}
+.hs-slide[data-scene='metals'] .hs-cover__frame {
+  animation: metals-float 9s ease-in-out infinite;
+  animation-play-state: paused;
+}
+.hs-slide[data-scene='metals'][data-active='true'] .hs-cover__frame { animation-play-state: running; }
+.metals-fx { position: absolute; inset: 0; pointer-events: none; }
+.metals-fx__face {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 40%, rgb(255 247 222 / 0.06) 46%, rgb(255 251 235 / 0.45) 49%, rgb(255 255 255 / 0.13) 51%, transparent 57%);
+  background-size: 300% 100%;
+  mix-blend-mode: screen;
+  animation: metals-sheen 7s ease-in-out infinite;
+  animation-play-state: paused;
+}
+.metals-fx__face::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 17% 32% at calc(70% + var(--mx) * 14%) calc(48% + var(--my) * 22%), rgb(255 248 222 / 0.28), transparent);
+  opacity: 0;
+  transition: opacity 0.6s;
+}
+.hero-slider[data-cursor] .metals-fx__face::after { opacity: 1; }
+.metals-fx__face--gold { clip-path: polygon(65.4% 12.4%, 76% 18.3%, 55.2% 73.8%, 42.5% 65.2%); }
+.metals-fx__face--silver {
+  clip-path: polygon(84.8% 3.8%, 94.8% 10.9%, 86.2% 43.7%, 81.8% 49%, 82.2% 31.5%, 78.5% 20.4%);
+  animation-delay: -2.4s;
+}
+.metals-fx__face--front {
+  clip-path: polygon(90.6% 41%, 95.7% 46.3%, 79.6% 76.7%, 73% 67.8%);
+  animation-delay: -4.5s;
+}
+.metals-fx__glint {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: clamp(18px, 2.5vw, 38px);
+  aspect-ratio: 1;
+  background: radial-gradient(circle, #fff 0%, rgb(255 245 214 / 0.8) 5%, rgb(255 228 158 / 0.12) 24%, transparent 65%);
+  mix-blend-mode: screen;
+  opacity: 0;
+  animation: metals-glint 5.6s ease-in-out var(--delay) infinite;
+  animation-play-state: paused;
+}
+.metals-fx__glint::before,
+.metals-fx__glint::after {
+  content: '';
+  position: absolute;
+  inset: 48% 0;
+  background: linear-gradient(90deg, transparent, rgb(255 253 237 / 0.9), transparent);
+}
+.metals-fx__glint::after { transform: rotate(90deg); }
+.hs-slide[data-active='true'] :is(.metals-fx__face, .metals-fx__glint) { animation-play-state: running; }
+
 /* --- rail ------------------------------------------------------------------ */
 
 .hs-rail {
@@ -624,6 +689,20 @@
   15% { opacity: 0.85; }
   100% { transform: scale(1.9); opacity: 0; }
 }
+@keyframes metals-float {
+  0%, 100% { transform: translate3d(0, 0.5%, 0) rotate(-0.3deg); }
+  50% { transform: translate3d(0, -0.5%, 0) rotate(0.3deg); }
+}
+@keyframes metals-sheen {
+  0%, 12% { background-position: 100% 0; opacity: 0; }
+  23% { opacity: 0.8; }
+  57% { opacity: 0.5; }
+  72%, 100% { background-position: 0% 0; opacity: 0; }
+}
+@keyframes metals-glint {
+  0%, 15%, 55%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.5) rotate(8deg); }
+  32% { opacity: 0.85; transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+}
 
 /* --- responsive ------------------------------------------------------------ */
 
@@ -731,7 +810,9 @@
   .hs-slide[data-active='true'] :is(.hs-word > span, .hs-eyebrow, .hs-body, .hs-actions),
   .hs-slide[data-active='true'] .chill-feed li { animation: none; }
   .hs-rain,
-  .cat-fx { display: none; }
+  .cat-fx,
+  .metals-fx { display: none; }
+  .hs-slide[data-scene='metals'] .hs-cover__frame { animation: none; }
   .chill-feed__eq i { animation: none; transform: scaleY(0.6); }
   .hs-cursor { transition: opacity 0.2s; }
 }

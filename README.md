@@ -41,6 +41,8 @@ Original PNG images were generated using the built-in image_gen tool and saved i
 
 The initial prompts, filenames, palette and generation mode are recorded in [prompts.json](public/assets/generated/prompts.json). The four revised images and their exact prompts are recorded in [revision-prompts.json](public/assets/generated/revision-prompts.json).
 
+The precious-metals hero uses newly generated gold and silver bullion with a flowing gold ribbon on charcoal. Its original is `public/assets/hero/hero-precious-metals.png`; the served WebP is 1659 × 948 and approximately 197 KB. The exact built-in image_gen prompt is saved in [precious-metals-prompt.json](public/assets/hero/precious-metals-prompt.json).
+
 ## Content and destinations
 
 Copy and destinations live in `lib/content.js`. Destination URLs that have not been supplied remain `href: null`; `SmartLink` renders those as non-interactive labels. Account registration, demo, platform downloads, social profiles and other destination pages still need their approved URLs.
@@ -59,7 +61,7 @@ Current platform artwork: `public/assets/generated/platform-devices-front.png`. 
 - Mega menus wait 120 ms before opening on hover, so crossing the nav on the way down the page no longer throws a panel over the content; once one panel is open, moving between them is instant. Click, Escape and the mobile drawer are unchanged.
 - Opening the mobile drawer locks the body scroll and compensates for the removed scrollbar, so the page no longer shifts sideways.
 - Hero slides can be dragged with the mouse, swiped on touch screens and trackpads, changed with the arrow keys, or picked from the tabs. Slides advance every 8 seconds; the active tab shows progress. Autoplay pauses while dragging, while the controls are hovered, on keyboard focus, when the hero is off screen or the tab is hidden, and can be paused with the button. Reduced-motion preferences turn off autoplay, parallax and scene effects.
-- Hero scene effects: mouse parallax and a cursor light on every slide; a lens glint, headphone sound waves and platform notifications on the cat slide; falling light streaks on the markets slide.
+- Hero scene effects: mouse parallax and a cursor light on every slide; a lens glint, headphone sound waves and platform notifications on the cat slide; falling light streaks on the markets slide; floating bullion, face-aligned reflection sweeps, edge glints and pointer lighting on the precious-metals slide. Bullion effects pause on inactive slides and are disabled for reduced motion.
 - The partner card uses the glass ByteFX mark (`public/assets/partner/bytefx-glass-mark.webp`, cut out from the supplied artwork with a transparent background).
 - The platforms bento tile reacts to the pointer: the wallpaper drifts against the cursor and a soft light follows it behind the artwork. Coarse pointers and reduced motion get the still image.
 - Testimonials auto-scroll as a seamless marquee: the list is rendered twice and the track slides by exactly half its width. Speed is a constant 34 px/s derived from the measured track width, and the animation pauses on hover, on press and on keyboard focus. The row is still a native horizontal scroller for touch and trackpad, the duplicate copy is `aria-hidden`, and `prefers-reduced-motion` stops the drift entirely.
@@ -77,6 +79,7 @@ Current platform artwork: `public/assets/generated/platform-devices-front.png`. 
 - Verified desktop hand-held artwork, alternate mobile phone, three glass platform tabs, seven payment accordions including UPI, QR decoding, keyboard selection, Atlas, light theme and reduced motion at widths from 320 to 1440 pixels.
 - The latest checks cover both payment illustrations, accordion expansion/collapse and keyboard navigation, a single mobile rating image, platform wallpaper contrast, and responsive layouts without runtime errors.
 - Review screenshots are saved in `output/review/`.
+- Precious-metals hero checked at 320, 390, 768, 1024 and 1440 pixels: no page overflow, readable actions, animated reflections, pointer response, slide wrap, mouse drag, keyboard navigation and reduced motion. Screenshots and results are saved as `output/review/precious-metals-*`.
 
 ## Brand icon
 

@@ -147,6 +147,20 @@ function CatScene() {
   );
 }
 
+/* Reflections follow the bullion faces inside the artwork's own coordinate box. */
+function MetalsScene() {
+  return (
+    <div className="metals-fx" aria-hidden="true">
+      <span className="metals-fx__face metals-fx__face--gold" />
+      <span className="metals-fx__face metals-fx__face--silver" />
+      <span className="metals-fx__face metals-fx__face--front" />
+      <span className="metals-fx__glint" style={{ '--x': '65.8%', '--y': '12.8%', '--delay': '0s' }} />
+      <span className="metals-fx__glint" style={{ '--x': '84.7%', '--y': '4.2%', '--delay': '1.8s' }} />
+      <span className="metals-fx__glint" style={{ '--x': '79.4%', '--y': '76.8%', '--delay': '3.4s' }} />
+    </div>
+  );
+}
+
 function ChillFeed({ items }) {
   return (
     <ul className="chill-feed" aria-hidden="true">
@@ -460,6 +474,7 @@ export default function HeroSlot() {
                     ) : (
                       <CoverArt art={slide.art} preload={index === 0}>
                         {slide.scene === 'cat' ? <CatScene /> : null}
+                        {slide.scene === 'metals' ? <MetalsScene /> : null}
                       </CoverArt>
                     )}
                   </div>
