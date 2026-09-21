@@ -8,7 +8,6 @@
 .h-xl, .h-lg, .h-md, .h-sm { font-weight: 500; }
 .h-lg { font-size: clamp(34px, 4vw, 54px); }
 .eyebrow { font-size: 12px; letter-spacing: .15em; }
-.masthead__inner { border-radius: 100px; min-height: 72px; padding-inline: 26px 12px; box-shadow: 0 12px 32px #0002; }
 .mega__feature figure { background: transparent; }
 .hero { min-height: 100svh; padding: 150px 0 110px; text-align: left; }
 .hero__layout { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 28px; }
@@ -43,12 +42,15 @@ a.social:hover { color: #0f0f0f; }
 .t-markets { min-height: 770px; }
 .t-markets figure { padding: 20px 28px; }
 .t-markets__head .h-md { max-width: 14ch; }
-.t-platforms { min-height: 360px; }
-.t-platforms figure { right: 0; bottom: 24px; width: 51%; }
-.t-platforms__copy { width: 51%; }
 .t-refer { min-height: 350px; }
-.t-refer figure { inset: 5px 0 auto; }
-.t-refer figure img { width: 58%; max-width: 172px; }
+.t-refer figure { inset: 6px 0 auto; }
+/* the artwork's mirror reflection fades out before it reaches the copy */
+.t-refer figure img {
+  width: 52%;
+  max-width: 158px;
+  -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent 88%);
+  mask-image: linear-gradient(180deg, #000 70%, transparent 88%);
+}
 .t-refer__copy { padding-top: 24px; background: none; }
 .t-partner { min-height: 350px; align-items: flex-start; }
 .t-partner__copy { width: 74%; padding-top: 26px; }
@@ -70,21 +72,18 @@ a.social:hover { color: #0f0f0f; }
 @media (max-width: 1180px) {
   .hero__facts { gap: 20px; }
   .hero__facts div + div { padding-left: 20px; }
-  .t-platforms__copy { width: 100%; }
-  .t-platforms figure { right: auto; bottom: auto; width: 90%; margin: 12px auto; }
   .t-partner { min-height: 320px; }
   .t-partner__copy { width: 64%; }
   .t-partner figure { right: 2%; bottom: 12px; width: 32%; }
 }
 @media (max-width: 980px) {
-  .masthead__inner { min-height: 64px; }
   .t-refer figure { inset: auto; padding-top: 20px; }
   .t-refer figure img { width: 45%; }
   .t-refer__copy { padding-top: 16px; }
   .t-markets { min-height: 0; }
 }
 @media (max-width: 760px) {
-  .masthead__inner { min-height: 58px; padding-inline: 18px 10px; gap: 8px; }
+  .masthead__inner { gap: 8px; }
   .hero { padding: 130px 0 80px; }
   .hero__layout { grid-template-columns: 1fr; gap: 22px; }
   .hero h1 { font-size: clamp(46px, 9vw, 68px); }
@@ -96,7 +95,7 @@ a.social:hover { color: #0f0f0f; }
   .hero__art { width: min(430px, 94%); margin-inline: auto; }
   .hero__art figcaption { margin-top: 0; }
   .stat { flex-basis: min(292px, 82vw); }
-  .t-platforms__copy, .t-partner__copy { width: 100%; }
+  .t-partner__copy { width: 100%; }
   .t-partner { min-height: 0; }
   .t-partner figure { width: 52%; right: auto; bottom: auto; margin: 0 14px 14px auto; opacity: 1; }
   .t-refer { min-height: 0; }
@@ -135,8 +134,6 @@ a.social:hover { color: #0f0f0f; }
   color: var(--ink-2);
   font-size: 13px;
 }
-.t-platforms figure { width: 53%; right: 0; bottom: 22px; }
-.t-platforms__copy { width: 48%; }
 .footer__hail figure { width: clamp(240px, 30vw, 380px); }
 .closing--markets { --closing-shift: 100px; }
 .closing__scene { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
@@ -146,89 +143,69 @@ a.social:hover { color: #0f0f0f; }
 .closing__wing--right { clip-path: inset(0 0 0 50%); transform: translateX(var(--closing-shift)); }
 .closing--markets .closing__inner { width: min(780px, 100%); }
 .closing--markets .h-xl { font-size: clamp(56px, 6.4vw, 92px); }
-@media (max-width: 1180px) {
-  .t-platforms__copy { width: 100%; }
-  .t-platforms figure { width: 94%; right: auto; bottom: auto; margin: 12px auto; }
+/* Phones: the artwork's middle is empty, so instead of squeezing the whole
+   2:1 scene into a strip, the two wings are placed side by side beneath the
+   copy. Each wing is the full image at 1/0.7 of the scene's width, clipped to
+   its outer 35% — the arc on the left half, the market tiles on the right —
+   which keeps the image's own proportions (no stretching). They still slide
+   together as the section scrolls into view. Portrait tablets get the same
+   layout — a full-height 2:1 scene would be stretched there too. */
+@media (max-width: 980px) {
+  .closing.closing--markets {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .closing--markets .closing__inner { order: 1; margin-inline: auto; padding: 96px 24px 20px; }
+  .closing--markets .closing__scene {
+    order: 2;
+    position: relative;
+    inset: auto;
+    flex: none;
+    width: 100%;
+    aspect-ratio: 7 / 5;
+  }
+  .closing--markets .closing__wing { inset: 0 auto 0 0; width: calc(100% / 0.7); }
+  .closing--markets .closing__wing--left { clip-path: inset(0 65% 0 0); }
+  .closing--markets .closing__wing--right { left: auto; right: 0; clip-path: inset(0 0 0 65%); }
+  .closing--markets .closing__wing img { object-fit: fill; }
 }
 @media (max-width: 760px) {
-  .closing__scene { inset: auto -12% 0; height: 34%; }
-  .closing__wing img { object-fit: fill; }
-  .closing--markets .closing__inner { padding: 75px 16px 250px; }
-  .closing--markets .h-xl { font-size: clamp(48px, 11vw, 76px); }
+  .closing--markets .closing__inner { padding: 88px 20px 16px; }
+  .closing--markets .h-xl { font-size: clamp(44px, 12.5vw, 68px); }
+  .closing--markets .closing__lead { font-size: 16px; margin-top: 18px; }
+  .closing--markets .closing__acts {
+    flex-direction: column;
+    align-items: stretch;
+    width: min(100%, 340px);
+    margin-inline: auto;
+  }
+  .closing--markets .closing__acts .btn { width: 100%; }
+  .closing--markets .closing__points { margin-top: 26px; gap: 8px 0; font-size: 12.5px; }
+  .closing--markets .closing__points li { padding-inline: 12px; }
+}
+/* too narrow for one row: drop the dividers so a wrapped row never starts
+   with one, and space the points instead */
+@media (max-width: 380px) {
+  .closing--markets .closing__points { gap: 6px 18px; }
+  .closing--markets .closing__points li { padding-inline: 0; }
+  .closing--markets .closing__points li + li { border-left: 0; }
   .footer__hail figure { width: min(260px, 85%); justify-self: center; }
 }
 @media (prefers-reduced-motion: reduce) {
   .closing__wing { transform: none; will-change: auto; }
 }
-/* A wallpaper-led platform tile contrasts with the three object-led cards.
-   The artwork is a cut-out on a transparent background, so it is contained
-   rather than cropped and the tile's own charcoal shows through it. The
-   scene drifts against the pointer and a light follows the cursor behind it;
-   `--wall-x` / `--wall-y` (-0.5 .. 0.5) and `--beam-x` / `--beam-y` come from
-   components/platform-wallpaper.jsx. */
-.t-platforms.t-platforms--wallpaper { isolation: isolate; background: radial-gradient(130% 120% at 18% 0%,#101609 0%,#0a0d08 55%,#070907 100%); min-height: 480px; }
-.t-platforms__visual { position: absolute; inset: 0; z-index: -2; pointer-events: none; overflow: hidden; }
-.t-platforms--wallpaper .t-platforms__wallpaper {
-  object-fit: contain;
-  object-position: center;
-  translate: calc(var(--wall-x, 0) * -22px) calc(var(--wall-y, 0) * -14px);
-  transition: scale 1.2s cubic-bezier(.2,.65,.3,1), translate .45s cubic-bezier(.2,.65,.3,1);
-}
-.t-platforms__beam {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(34% 46% at var(--beam-x, 62%) var(--beam-y, 48%), rgb(151 236 40 / .5), rgb(22 96 214 / .22) 46%, transparent 72%);
-  mix-blend-mode: screen;
-  opacity: .5;
-  transition: opacity .5s, background .18s linear;
-  pointer-events: none;
-}
-.t-platforms--wallpaper[data-tracking='true'] .t-platforms__beam { opacity: 1; }
-/* the copy sits on the darkened half, so the cut-out stays readable */
-.t-platforms--wallpaper::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg,#060906f2 0%,#060906e0 30%,#0609068f 50%,#06090626 72%,transparent 88%); pointer-events: none; }
-@media (hover: hover) and (pointer: fine) { .t-platforms--wallpaper:hover .t-platforms__wallpaper { scale: 1.045; } }
-.t-platforms--wallpaper .t-platforms__copy { width: 53%; max-width: 445px; padding: 42px; }
-.t-platforms--wallpaper .h-md { color: #fff; }
-.t-platforms--wallpaper .tint,.t-platforms--wallpaper .eyebrow { color: #ade512; }
-.t-platforms--wallpaper .lede { color: #d3d8cf; }
-/* Light theme: the tile was charcoal in both themes, which made it the only
-   dark panel on a light page. The neon cut-out reads fine on a pale surface,
-   so only the panel, the scrim and the beam flip. */
-[data-theme='light'] .t-platforms.t-platforms--wallpaper {
-  background: radial-gradient(130% 120% at 18% 0%, #f7fbee 0%, #eef3e2 55%, #e5ecd5 100%);
-  border-color: var(--line);
-}
-[data-theme='light'] .t-platforms--wallpaper::after {
-  background: linear-gradient(90deg,#f8faf1f7 0%,#f8faf1e8 30%,#f8faf19c 50%,#f8faf130 72%,transparent 88%);
-}
-[data-theme='light'] .t-platforms--wallpaper .h-md { color: var(--ink); }
-[data-theme='light'] .t-platforms--wallpaper .tint,
-[data-theme='light'] .t-platforms--wallpaper .eyebrow { color: var(--accent); }
-[data-theme='light'] .t-platforms--wallpaper .lede { color: var(--ink-2); }
-/* screen blending adds nothing over a pale panel, so the light tints it */
-[data-theme='light'] .t-platforms__beam {
-  mix-blend-mode: multiply;
-  background: radial-gradient(34% 46% at var(--beam-x, 62%) var(--beam-y, 48%), rgb(126 192 24 / .3), rgb(30 92 200 / .15) 46%, transparent 72%);
-  opacity: .4;
-}
-[data-theme='light'] .t-platforms--wallpaper[data-tracking='true'] .t-platforms__beam { opacity: .85; }
+/* Trading platforms tile: image only. The artwork fills the card edge to edge
+   (it has soft transparent edges, so it blends into the card surface); the
+   crop keeps the face and the chart's peak in view. Below 1180px the card
+   takes the artwork's own shape, so nothing is cropped. */
+.t-platforms.t-platforms--visual { display: block; min-height: 480px; }
+.t-platforms__visual { position: absolute; inset: 0; margin: 0; }
+.t-platforms__visual img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 58% 4%; }
 
-@media(max-width:1180px) {
-  .t-platforms.t-platforms--wallpaper { min-height: 540px; align-items: flex-start; }
-  .t-platforms--wallpaper .t-platforms__copy { width: 100%; max-width: 470px; padding: 30px; }
-  .t-platforms__visual { inset: 30% -6% -4% -6%; }
-  .t-platforms--wallpaper::after { background: linear-gradient(180deg,#080b08 0%,#080b08ed 27%,#080b089c 47%,#080b0812 74%,transparent); }
-  [data-theme='light'] .t-platforms--wallpaper::after { background: linear-gradient(180deg,#f8faf1 0%,#f8faf1ef 27%,#f8faf1a6 47%,#f8faf124 74%,transparent); }
-}
-@media(max-width:760px) {
-  .t-platforms.t-platforms--wallpaper { min-height: 510px; }
-  .t-platforms--wallpaper .t-platforms__copy { padding: 28px; }
-  .t-platforms__visual { inset: 34% -10% -2% -10%; }
-}
-@media(prefers-reduced-motion:reduce) {
-  .t-platforms--wallpaper .t-platforms__wallpaper { transition: none; translate: none; }
-  .t-platforms--wallpaper:hover .t-platforms__wallpaper { scale: 1; }
-  .t-platforms__beam { transition: none; }
+@media (max-width: 1180px) {
+  .t-platforms.t-platforms--visual { min-height: 0; aspect-ratio: 1402 / 1031; }
+  .t-platforms__visual img { object-fit: contain; object-position: center; }
 }
 
 /* --- partner card: glass ByteFX mark --------------------------------------- */

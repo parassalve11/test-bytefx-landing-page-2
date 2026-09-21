@@ -1,13 +1,45 @@
-﻿.mobile-section { position: relative; isolation: isolate; overflow: hidden; background: radial-gradient(ellipse at 88% 20%,#79cdff 0%,#399df0 30%,transparent 60%),radial-gradient(ellipse at 28% 0%,#70b5e6 0%,transparent 43%),linear-gradient(115deg,#0756b4,#1377d8 65%,#58b7f8); color: #fff; }
+﻿.mobile-section {
+  /* Light theme: the original blue. */
+  --mobile-bg: radial-gradient(ellipse at 88% 20%,#79cdff 0%,#399df0 30%,transparent 60%),radial-gradient(ellipse at 28% 0%,#70b5e6 0%,transparent 43%),linear-gradient(115deg,#0756b4,#1377d8 65%,#58b7f8);
+  --mobile-accent: #7ae2ff;
+  --mobile-eyebrow: #f1f7ff;
+  --mobile-hairline: #b6dcffad;
+  --mobile-badge-line: #b8d1e6;
+  --mobile-shadow: #003b7b50;
+  --mobile-art-shadow: #06488130;
+  --mobile-phone-shadow: #06428566;
+  position: relative; isolation: isolate; overflow: hidden; background: var(--mobile-bg); color: #fff;
+}
+/* Dark theme: the same composition in the ByteFX lime — deep green where the
+   copy sits (white text stays readable), rising to bright lime and a soft
+   highlight behind the phone, like light across a lime watch strap. */
+[data-theme='dark'] .mobile-section {
+  --mobile-bg: radial-gradient(ellipse at 88% 20%,#dcfb7c 0%,#9fd21a 30%,transparent 60%),radial-gradient(ellipse at 30% 0%,#5f8f16 0%,transparent 40%),linear-gradient(115deg,#1f4200,#3d7000 58%,#9ccf18);
+  --mobile-accent: #d6ff5a;
+  --mobile-eyebrow: #f3fbe3;
+  --mobile-hairline: #e6f7c7a8;
+  --mobile-badge-line: #d5ebac;
+  --mobile-shadow: #1c330050;
+  --mobile-art-shadow: #1c360030;
+  --mobile-phone-shadow: #1a300066;
+}
+/* Stacked layout (copy centred on top, phone below): run the green
+   top-to-bottom so the copy sits on deep green and the lime glow rises
+   behind the phone. */
+@media (max-width: 980px) {
+  [data-theme='dark'] .mobile-section {
+    --mobile-bg: radial-gradient(ellipse 90% 45% at 50% 88%,#d4f86c 0%,#98cc1c 38%,transparent 72%),linear-gradient(180deg,#1d3f00 0%,#2c5800 40%,#4c8604 70%,#86bd12);
+  }
+}
 .mobile-showcase { position: relative; min-height: 810px; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 36px; }
 .mobile-copy { position: relative; z-index: 2; padding: 72px 0 78px; }
-.mobile-copy .eyebrow { color: #f1f7ff; letter-spacing: .23em; font-size: 13px; margin-bottom: 20px; }
+.mobile-copy .eyebrow { color: var(--mobile-eyebrow); letter-spacing: .23em; font-size: 13px; margin-bottom: 20px; }
 .mobile-copy h2 { font-size: clamp(52px,5.6vw,82px); line-height: 1.04; letter-spacing: -.045em; font-weight: 760; color: #fff; }
-.mobile-copy h2 span { color: #7ae2ff; }
+.mobile-copy h2 span { color: var(--mobile-accent); }
 .mobile-lede { max-width: 47ch; font-size: 18px; line-height: 1.5; margin-top: 28px; color: #fff; font-weight: 450; }
 .mobile-install { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 27px; }
-.mobile-store-badge { display: inline-flex; align-items: center; gap: 9px; min-height: 48px; padding: 6px 13px; border: 1px solid #b8d1e6; border-radius: 7px; color: white; background: #030303; transition: transform .2s,box-shadow .2s; }
-a.mobile-store-badge:hover { transform: translateY(-3px); box-shadow: 0 7px 18px #003b7b50; }
+.mobile-store-badge { display: inline-flex; align-items: center; gap: 9px; min-height: 48px; padding: 6px 13px; border: 1px solid var(--mobile-badge-line); border-radius: 7px; color: white; background: #030303; transition: transform .2s,box-shadow .2s; }
+a.mobile-store-badge:hover { transform: translateY(-3px); box-shadow: 0 7px 18px var(--mobile-shadow); }
 .mobile-store-badge small { display: block; font-size: 9px; line-height: 1.2; }
 .mobile-store-badge b { display: block; font-size: 20px; line-height: 1.15; font-weight: 600; }
 .mobile-store-badge--pending small { font-size: 8px; letter-spacing: .03em; }
@@ -16,15 +48,15 @@ a.mobile-store-badge:hover { transform: translateY(-3px); box-shadow: 0 7px 18px
 .mobile-qr img { width: 120px; height: 120px; border-radius: 8px; image-rendering: pixelated; }
 .mobile-qr b { font-size: 13px; line-height: 1.3; font-weight: 650; }
 .mobile-qr > span { font-size: 10px; line-height: 1.3; }
-.mobile-rating { border-left: 1px solid #b6dcffad; padding-left: 24px; display: flex; align-items: center; width: 230px; flex-shrink: 0; }
+.mobile-rating { border-left: 1px solid var(--mobile-hairline); padding-left: 24px; display: flex; align-items: center; width: 230px; flex-shrink: 0; }
 .mobile-rating img { display: block; width: 100%; height: auto; }
 .mobile-art { position: absolute; right: -32px; top: 0; width: 660px; height: 100%; pointer-events: none; }
-.mobile-art__hand { position: absolute; width: 660px; max-width: none; height: 880px; top: -69px; right: -24px; object-fit: contain; filter: drop-shadow(0 14px 18px #06488130); }
+.mobile-art__hand { position: absolute; width: 660px; max-width: none; height: 880px; top: -69px; right: -24px; object-fit: contain; filter: drop-shadow(0 14px 18px var(--mobile-art-shadow)); }
 .mobile-art__compact { display: none; }
 .qr-frame { width: 196px; height: 196px; padding: 0; }
 .qr-frame img { image-rendering: pixelated; border-radius: 10px; }
 @keyframes mobile-screen-in { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: none; } }
 @media(max-width:1180px) and (min-width:981px) { .mobile-art { right: -110px; } .mobile-copy { max-width: 520px; } .mobile-lede { max-width: 40ch; font-size: 16px; } .mobile-copy h2 { font-size: 66px; } }
-@media(max-width:980px) { .mobile-showcase { grid-template-columns: 1fr; gap: 0; min-height: 0; } .mobile-copy { text-align: center; padding: 64px 0 40px; max-width: 620px; margin-inline: auto; } .mobile-lede { margin-inline: auto; font-size: 16px; } .mobile-copy h2 { font-size: 64px; } .mobile-install,.mobile-download-row { justify-content: center; } .mobile-art { position: relative; width: 100%; height: auto; right: auto; padding-bottom: 50px; } .mobile-art__hand { display: none; } .mobile-art__compact { display: block; position: relative; width: 290px; margin-inline: auto; padding: 6px; border: 2px solid #788a99; border-radius: 38px; background: #13191e; box-shadow: 0 22px 45px #06428566,inset 0 0 0 1px #d2d9e1; } .mobile-art__compact img { width: 100%; height: auto; border-radius: 29px; } .mobile-art__camera { position: absolute; z-index: 1; top: 14px; left: 50%; translate: -50% 0; width: 28%; height: 15px; background: #05070a; border-radius: 20px; } }
+@media(max-width:980px) { .mobile-showcase { grid-template-columns: 1fr; gap: 0; min-height: 0; } .mobile-copy { text-align: center; padding: 64px 0 40px; max-width: 620px; margin-inline: auto; } .mobile-lede { margin-inline: auto; font-size: 16px; } .mobile-copy h2 { font-size: 64px; } .mobile-install,.mobile-download-row { justify-content: center; } .mobile-art { position: relative; width: 100%; height: auto; right: auto; padding-bottom: 50px; } .mobile-art__hand { display: none; } .mobile-art__compact { display: block; position: relative; width: 290px; margin-inline: auto; padding: 6px; border: 2px solid #788a99; border-radius: 38px; background: #13191e; box-shadow: 0 22px 45px var(--mobile-phone-shadow),inset 0 0 0 1px #d2d9e1; } .mobile-art__compact img { width: 100%; height: auto; border-radius: 29px; } .mobile-art__camera { position: absolute; z-index: 1; top: 14px; left: 50%; translate: -50% 0; width: 28%; height: 15px; background: #05070a; border-radius: 20px; } }
 @media(max-width:560px) { .mobile-copy { padding-top: 48px; } .mobile-copy h2 { font-size: clamp(45px,12vw,64px); } .mobile-copy .eyebrow { font-size: 11px; } .mobile-lede { font-size: 15px; } .mobile-download-row { gap: 18px; } .mobile-rating { padding-left: 14px; width: 158px; } .mobile-qr img { width: 112px; height: 112px; } .mobile-qr b { font-size: 11px; } .mobile-qr > span { font-size: 8px; } .mobile-install { gap: 10px; } .mobile-store-badge { padding-inline: 10px; } .mobile-store-badge b { font-size: 18px; } .mobile-art__compact { width: min(260px,85%); } }
 @media(prefers-reduced-motion:reduce) { .mobile-store-badge { transition: none; } a.mobile-store-badge:hover { transform: none; } }

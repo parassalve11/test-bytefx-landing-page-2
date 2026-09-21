@@ -3,8 +3,7 @@ import { bento } from '@/lib/content';
 import Icon from './icon';
 import Reveal from './reveal';
 import SmartLink from './smart-link';
-import MarketExplorer from './market-explorer';
-import PlatformWallpaper from './platform-wallpaper';
+import MarketShowcase from './market-showcase';
 
 export default function BentoSection() {
   const { markets, platforms, refer, partner } = bento;
@@ -18,29 +17,27 @@ export default function BentoSection() {
             <div className="t-markets__head">
               <p className="eyebrow">{markets.eyebrow}</p>
               <h2 className="h-md">
-                Access <span className="tint">150+</span> tradable instruments
+                Trade <span className="tint">commodities</span> and more
               </h2>
               <p className="lede">{markets.body}</p>
             </div>
 
-            <MarketExplorer markets={markets} />
+            <MarketShowcase markets={markets} />
           </Reveal>
 
           {/* platforms */}
-          <Reveal as="article" className="tile t-platforms t-platforms--wallpaper" delay={80} id="platforms">
-            <div className="t-platforms__copy">
-              <p className="eyebrow">{platforms.eyebrow}</p>
-              <h2 className="h-md">
-                Powerful platforms built <span className="tint">for you</span>
-              </h2>
-              <p className="lede">{platforms.body}</p>
-              <SmartLink href={platforms.cta.href} className="btn btn--solid btn--sm">
-                {platforms.cta.label}
-                <Icon name="arrow" size={16} />
-              </SmartLink>
-            </div>
-
-            <PlatformWallpaper src={platforms.image} alt="" />
+          {/* An image-only card: the platforms have their own section below
+              (#platform-guide), so this tile carries the artwork alone. */}
+          <Reveal as="article" className="tile t-platforms t-platforms--visual" delay={80} id="platforms">
+            <figure className="t-platforms__visual">
+              <Image
+                src={platforms.image}
+                alt={platforms.alt}
+                width={platforms.width}
+                height={platforms.height}
+                sizes="(max-width: 760px) 94vw, (max-width: 1180px) 48vw, 860px"
+              />
+            </figure>
           </Reveal>
 
           {/* refer */}
@@ -50,8 +47,9 @@ export default function BentoSection() {
                 className="tile__art"
                 src={refer.image}
                 alt={refer.alt}
-                width={1254}
-                height={1254}
+                width={refer.width}
+                height={refer.height}
+                sizes="(max-width: 760px) 46vw, 220px"
               />
             </figure>
 

@@ -1,0 +1,60 @@
+/* Trade global card — the market line-up (components/market-showcase.jsx).
+   --tilt-x / --tilt-y run from -0.5 to 0.5 across the card, set on mouse move. */
+.market-showcase {
+  --tilt-x: 0;
+  --tilt-y: 0;
+  position: relative;
+  flex: 1;
+  display: grid;
+  place-items: center;
+  min-height: 360px;
+  margin: 4px 18px 24px;
+  isolation: isolate;
+}
+
+.market-showcase__glow {
+  position: absolute;
+  z-index: -1;
+  width: 86%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, var(--glow), transparent);
+  pointer-events: none;
+}
+
+.market-showcase__float {
+  width: min(100%, 360px);
+  perspective: 900px;
+  animation: market-showcase-float 7s ease-in-out infinite;
+}
+
+.market-showcase__art {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: rotateX(calc(var(--tilt-y) * -9deg)) rotateY(calc(var(--tilt-x) * 12deg));
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+  filter: drop-shadow(0 22px 26px rgb(0 0 0 / 0.32));
+}
+[data-theme='light'] .market-showcase__art {
+  filter: drop-shadow(0 20px 24px rgb(30 40 10 / 0.16));
+}
+
+@keyframes market-showcase-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -8px; }
+}
+
+@media (max-width: 760px) {
+  .market-showcase {
+    flex: none;
+    min-height: 0;
+    margin: 10px 18px 24px;
+  }
+  .market-showcase__float { width: min(100%, 340px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .market-showcase__float { animation: none; }
+  .market-showcase__art { transform: none; transition: none; }
+}

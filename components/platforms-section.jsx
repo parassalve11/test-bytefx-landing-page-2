@@ -7,11 +7,12 @@ import Reveal from './reveal';
 import PlatformLights from './platform-lights';
 
 export default function PlatformsSection() {
-  const [selected,setSelected] = useState(1);
+  const [selected,setSelected] = useState(0);
   const tabs = useRef([]);
   const platform = platformOptions[selected];
+  const count = platformOptions.length;
   const onKey = (event,index) => {
-    const keys={ArrowRight:(index+1)%3,ArrowLeft:(index+2)%3,Home:0,End:2};
+    const keys={ArrowRight:(index+1)%count,ArrowLeft:(index+count-1)%count,Home:0,End:count-1};
     if (!(event.key in keys)) return;
     event.preventDefault();setSelected(keys[event.key]);tabs.current[keys[event.key]]?.focus();
   };

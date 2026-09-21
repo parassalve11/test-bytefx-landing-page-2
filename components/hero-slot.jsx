@@ -1,20 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import { useCallback, useEffect, useReducer, useRef, useState, useSyncExternalStore } from 'react';
+import { useCallback, useEffect, useReducer, useRef, useState } from 'react';
 import { hero } from '@/lib/content';
 import Icon from './icon';
-
-/* ---------------------------------------------------------------- motion prefs */
-
-const motionQuery = '(prefers-reduced-motion: reduce)';
-function subscribeMotion(callback) {
-  const query = window.matchMedia(motionQuery);
-  query.addEventListener('change', callback);
-  return () => query.removeEventListener('change', callback);
-}
-const getMotion = () => window.matchMedia(motionQuery).matches;
-const getServerMotion = () => true;
 
 /* ------------------------------------------------------------------ track state
    Every slide sits on a horizontal track at an integer offset from the active
@@ -211,16 +200,17 @@ export default function HeroSlot() {
   const [state, dispatch] = useReducer(reducer, count, initState);
   const { active } = state;
 
-  const reduced = useSyncExternalStore(subscribeMotion, getMotion, getServerMotion);
-  const [autoplayChoice, setAutoplayChoice] = useState(null);
   const [keyboardFocus, setKeyboardFocus] = useState(false);
   const [controlsHovered, setControlsHovered] = useState(false);
   const [dragging, setDragging] = useState(false);
   const [visible, setVisible] = useState(true);
   const [pageVisible, setPageVisible] = useState(true);
 
-  const autoplay = autoplayChoice ?? !reduced;
-  const playing = autoplay && !keyboardFocus && !controlsHovered && !dragging && visible && pageVisible;
+  /* The slideshow always advances every hero.interval (8 s). It only holds
+     while someone is using it — keyboard focus inside, the pointer on the
+     slide tabs/arrows, or mid-swipe — and while it is off screen or the tab
+     is in the background, so nobody returns to a slide they never saw. */
+  const playing = !keyboardFocus && !controlsHovered && !dragging && visible && pageVisible;
 
   const root = useRef(null);
   const elapsed = useRef(0);
@@ -306,17 +296,14 @@ export default function HeroSlot() {
     return () => el.removeEventListener('wheel', onWheel);
   }, []);
 
-  /* --- pointer: parallax, cursor light and drag ---------------------------- */
+  /* --- pointer: a gentle parallax on the artwork, and swipe ----------------- */
   function flushPointer() {
     const p = pointer.current;
     const el = root.current;
     p.frame = 0;
     if (!el) return;
-    el.style.setProperty('--cx', `${p.x}px`);
-    el.style.setProperty('--cy', `${p.y}px`);
     el.style.setProperty('--mx', ((p.x / p.w) * 2 - 1).toFixed(3));
     el.style.setProperty('--my', ((p.y / p.h) * 2 - 1).toFixed(3));
-    el.dataset.cursor = p.overControl ? 'control' : 'drag';
   }
 
   function trackPointer(event) {
@@ -327,7 +314,6 @@ export default function HeroSlot() {
     p.y = event.clientY - rect.top;
     p.w = rect.width;
     p.h = rect.height;
-    p.overControl = Boolean(event.target.closest('a, button, .hs-rail')) && !drag.current?.engaged;
     if (!p.frame) p.frame = requestAnimationFrame(flushPointer);
   }
 
@@ -404,7 +390,6 @@ export default function HeroSlot() {
   function onPointerLeave(event) {
     if (event.pointerType !== 'mouse') return;
     const el = root.current;
-    delete el.dataset.cursor;
     el.style.setProperty('--mx', '0');
     el.style.setProperty('--my', '0');
   }
@@ -427,7 +412,6 @@ export default function HeroSlot() {
       aria-label="ByteFX highlights"
       aria-roledescription="carousel"
       data-dragging={dragging ? 'true' : undefined}
-      data-autoplay={autoplay ? 'on' : 'off'}
       data-tone={current.tone ?? 'lime'}
       onKeyDown={onKeys}
       onFocusCapture={(event) => { if (event.target.matches(':focus-visible')) setKeyboardFocus(true); }}
@@ -483,7 +467,6 @@ export default function HeroSlot() {
 
               {slide.scene === 'rain' ? <RainScene /> : null}
               <div className="hs-shade" />
-              <div className="hs-light" />
               {slide.feed ? <ChillFeed items={slide.feed} /> : null}
 
               <div className="shell hs-layout">
@@ -538,14 +521,6 @@ export default function HeroSlot() {
         </div>
 
         <div className="hs-controls">
-          <button
-            className="hs-round"
-            type="button"
-            aria-label={autoplay ? 'Pause the slideshow' : 'Play the slideshow'}
-            onClick={() => setAutoplayChoice(!autoplay)}
-          >
-            <span className={autoplay ? 'hs-glyph-pause' : 'hs-glyph-play'} aria-hidden="true" />
-          </button>
           <button className="hs-round" type="button" aria-label="Previous slide" onClick={() => step(-1)}>
             <Icon name="back" size={16} />
           </button>
@@ -553,12 +528,6 @@ export default function HeroSlot() {
             <Icon name="arrow" size={16} />
           </button>
         </div>
-      </div>
-
-      <div className="hs-cursor" aria-hidden="true">
-        <Icon name="back" size={10} />
-        <span>Drag</span>
-        <Icon name="arrow" size={10} />
       </div>
     </section>
   );

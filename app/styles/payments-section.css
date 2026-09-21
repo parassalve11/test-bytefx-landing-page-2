@@ -3,12 +3,11 @@
 .payments-story .eyebrow { margin-bottom: 20px; }
 .payments-story .h-lg { font-size: clamp(36px,3.8vw,54px); }
 .payments-story > .lede { font-size: 15px; margin-top: 22px; line-height: 1.8; }
-.payment-scene { position: relative; width: 100%; height: 480px; margin-top: 15px; isolation: isolate; }
+.payment-scene { position: relative; width: 100%; height: 500px; margin-top: 15px; isolation: isolate; }
 .payment-scene::before { content: ''; position: absolute; inset: 18% 10% 6%; z-index: -1; background: radial-gradient(ellipse,#ade51212,transparent 68%); }
-.payment-scene__jar { position: absolute; width: 75%; height: 100%; object-fit: contain; left: -3%; top: 0; transition: transform .55s,filter .55s; }
-.payment-scene__vault { position: absolute; width: 49%; height: 67%; object-fit: contain; right: -2%; bottom: -8px; filter: drop-shadow(-12px 12px 18px #0003); transition: transform .55s; }
-.payment-scene[data-focus='vault'] .payment-scene__vault { transform: translateY(-14px) scale(1.04); }
-.payment-scene[data-focus='vault'] .payment-scene__jar { transform: translateX(-5px); filter: brightness(.92); }
+/* one wallet artwork, contained and centred in the scene at every width */
+.payment-scene__wallet { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: center; filter: drop-shadow(0 22px 28px #0004); }
+[data-theme='light'] .payment-scene__wallet { filter: drop-shadow(0 20px 26px #2a320f1f); }
 .payments-options { border-top: 1px solid var(--line); padding-top: 24px; }
 .payments-options__heading { display: flex; justify-content: space-between; align-items: center; gap: 15px; margin-bottom: 22px; }
 .payments-options__heading h3 { font-size: 21px; font-weight: 500; letter-spacing: -.02em; }
@@ -32,4 +31,4 @@
 @media(max-width:1180px) { .payments-layout { gap: 40px; } .payment-scene { height: 430px; } .payment-option__category { display: none; } .payment-option__toggle { margin-left: auto; } }
 @media(max-width:760px) { .payments-layout { grid-template-columns: 1fr; gap: 28px; } .payments-story { text-align: center; } .payment-scene { width: min(480px,100%); height: 370px; margin-inline: auto; margin-top: 20px; } .payments-options__heading h3 { font-size: 19px; } .payment-option__category { display: block; } }
 @media(max-width:420px) { .payment-scene { height: 310px; } .payment-option__category { display: none; } .payment-option button { gap: 12px; padding-inline: 7px; } .payment-option__details { padding: 0 14px 19px 77px; font-size: 12px; } }
-@media(prefers-reduced-motion:reduce) { .payment-scene__jar,.payment-scene__vault,.payment-option,.payment-option__name { transition: none; } .payment-scene[data-focus='vault'] .payment-scene__vault,.payment-scene[data-focus='vault'] .payment-scene__jar { transform: none; } .payment-option__details { animation: none; } }
+@media(prefers-reduced-motion:reduce) { .payment-option,.payment-option__name { transition: none; } .payment-option__details { animation: none; } }
