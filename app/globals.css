@@ -7,7 +7,7 @@
 @import './styles/platform-section.css' layer(components);
 @import './styles/payments-section.css' layer(components);
 @import './styles/hero-slider.css' layer(components);
-@import './styles/market-explorer.css' layer(components);
+@import './styles/market-orbit.css' layer(components);
 
 /* ==========================================================================
    ByteFX — design tokens

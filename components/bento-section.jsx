@@ -3,8 +3,7 @@ import { bento } from '@/lib/content';
 import Icon from './icon';
 import Reveal from './reveal';
 import SmartLink from './smart-link';
-import MarketExplorer from './market-explorer';
-import PlatformWallpaper from './platform-wallpaper';
+import MarketOrbit from './market-orbit';
 
 export default function BentoSection() {
   const { markets, platforms, refer, partner } = bento;
@@ -18,20 +17,20 @@ export default function BentoSection() {
             <div className="t-markets__head">
               <p className="eyebrow">{markets.eyebrow}</p>
               <h2 className="h-md">
-                Access <span className="tint">150+</span> tradable instruments
+                Trade <span className="tint">commodities</span> and more
               </h2>
               <p className="lede">{markets.body}</p>
             </div>
 
-            <MarketExplorer markets={markets} />
+            <MarketOrbit markets={markets} />
           </Reveal>
 
           {/* platforms */}
-          <Reveal as="article" className="tile t-platforms t-platforms--wallpaper" delay={80} id="platforms">
+          <Reveal as="article" className="tile t-platforms t-platforms--plain" delay={80} id="platforms">
             <div className="t-platforms__copy">
               <p className="eyebrow">{platforms.eyebrow}</p>
               <h2 className="h-md">
-                Powerful platforms built <span className="tint">for you</span>
+                ByteFX platforms built <span className="tint">for{'\u00a0'}you</span>
               </h2>
               <p className="lede">{platforms.body}</p>
               <SmartLink href={platforms.cta.href} className="btn btn--solid btn--sm">
@@ -40,7 +39,17 @@ export default function BentoSection() {
               </SmartLink>
             </div>
 
-            <PlatformWallpaper src={platforms.image} alt="" />
+            {/* The artwork is already a transparent cut-out, so it sits on the
+                tile's own surface with no added background, overlay or motion. */}
+            <figure className="t-platforms__art">
+              <Image
+                src={platforms.image}
+                alt={platforms.alt}
+                width={1440}
+                height={826}
+                sizes="(max-width: 760px) 92vw, (max-width: 1180px) 46vw, 520px"
+              />
+            </figure>
           </Reveal>
 
           {/* refer */}
