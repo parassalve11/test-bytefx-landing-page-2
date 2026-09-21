@@ -16,6 +16,8 @@ The current development preview uses http://localhost:3000. A fresh server norma
 
 ## Design
 
+j
+
 The visual reference is [Global Prime](https://globalprime.com/): charcoal `#0f0f0f`, secondary surfaces `#141414` and `#1b1b1b`, lime `#ade512`, white headings, rounded cards and pill buttons. ByteFX retains its own branding and content. Figtree Variable is bundled locally as the available typeface.
 
 `app/globals.css` defines the dark and light tokens. `app/styles/base.css` contains resets, `components.css` contains shared component styles, and `reference-theme.css` applies this design. Component styles use the components cascade layer, so Tailwind utilities retain precedence.
@@ -103,6 +105,7 @@ The artwork `public/assets/platforms/trade-everywhere.webp` is a transparent cut
 
 `components/market-orbit.jsx` and `app/styles/market-orbit.css`. Five 3D icons in `public/assets/markets/` (Forex, Indices, Crypto, Commodities, Shares) ride a tilted elliptical ring around `market-tokens.png`. JavaScript writes each icon's position on the ring as `--x`, `--y` and `--depth`; the ring's size (`--rx`, `--ry`), tilt and icon size are set in CSS and scale with the card through container units. One lap takes 28 seconds (`LAP` in the component). Icon sources and licences are in `public/assets/markets/sources.json`: Microsoft Fluent Emoji (MIT) and a 3D coin drawn around the CC0 Bitcoin mark. Copy and icon order live in `bento.markets` in `lib/content.js`.
 
+<<<<<<< HEAD
 ## Hero on every screen
 
 The hero fills the screen height from 560px (short laptops, 1080p at 150% Windows scaling) up to 1440px (1440p monitors); its type and spacing scale with the hero's height (`cqh`) as well as its width, so the copy never runs into the header or the slide tabs. Three layouts cover the rest:
@@ -113,6 +116,8 @@ The hero fills the screen height from 560px (short laptops, 1080p at 150% Window
 
 Checked on every slide at 1280×577, 1280×609, 1366×657, 1536×730, 1440×789, 1512×860, 1920×969, 2560×1297, 3440×1297, 3840×1960, 1024×640, 768×1024, 820×1180, 1024×1366, 1180×820, 960×969, 1100×969, 360×640, 375×548, 375×667, 390×844, 412×915, 430×932, 667×375, 740×360, 844×390 and 915×412: the copy clears the header and tabs, the tabs sit on screen, and nothing scrolls sideways.
 
+=======
+>>>>>>> 7135475bc53ddb66811b0900282c94be034d5230
 ## Build note
 
 The CSS pipeline keeps only the last of `backdrop-filter` / `-webkit-backdrop-filter` when both are written. Write `-webkit-backdrop-filter` first and `backdrop-filter` second, otherwise Chrome receives only the prefixed property and nothing is blurred.
