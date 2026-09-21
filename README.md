@@ -24,15 +24,15 @@ Dark is the default. The header toggle remembers an explicit light/dark preferen
 
 ## Page structure
 
-1. Header with desktop mega menus and a mobile drawer.
+1. Full-width sticky header with desktop mega menus and a mobile drawer.
 2. Full-height hero carousel with four slides: Mindset, Stay cool (the trading cat), Global markets and Precious metals. Artwork lives in `public/assets/hero/`; copy, layout and focal points in `hero` inside `lib/content.js`.
 3. **Trade with a global broker:** eight cards in a draggable carousel. The three added cards cover account choice, demo practice and mobile access. The cards are read-only stats, so they carry no per-card link button.
-4. Markets with glass currency tokens and metal bars; platforms with a pointer-reactive wallpaper; referral and partnership bento cards.
-5. Centered platform section with a new front-facing laptop, tablet and phone image; glass MetaTrader 4, MetaTrader 5 and TradingView capsules with official standalone app icons and a single changing description.
+4. Bento: a commodities card with colourful market icons revolving around the glass tokens and metal bars; a plain ByteFX platforms card; referral and partnership cards.
+5. Centered platform section with a new front-facing laptop, tablet and phone image; glass MetaTrader 5 and TradingView capsules with official standalone app icons and a single changing description. ByteFX does not offer MetaTrader 4.
 6. Blue mobile section matching the supplied reference: original hand-held ByteFX artwork on desktop, a separate upright screenshot phone below 981px, real Google Play QR, an App Store badge awaiting its URL, and the user-supplied 4.9/5 rating.
 7. Payment section with generated glass-jar and lime-vault illustrations beside seven expandable payment methods. Original-color Visa, Mastercard, Apple Pay, Bitcoin, USDT, bank wire and UPI logos accompany individual descriptions.
 8. Testimonials as a continuously auto-scrolling wall of ten reviews.
-9. **Ready to start trading?** with a minimum height of `100svh`, a lime glass scene inspired by the supplied background: arcs on the left and market tiles on the right. The two sides move toward one another as the section scrolls through the viewport. Reduced-motion preferences disable this effect. Small screens position the artwork beneath the content; content can grow for accessibility.
+9. **Ready to start trading?** with a minimum height of `100svh`, a lime glass scene inspired by the supplied background: arcs on the left and market tiles on the right. The two sides move toward one another as the section scrolls through the viewport. Reduced-motion preferences disable this effect. Up to 980px the artwork sits beneath the content, with its two halves side by side at their real proportions; content can grow for accessibility.
 10. Footer with a new lime glass Bitcoin sculpture based on the supplied footer image.
 
 ## Artwork
@@ -59,13 +59,13 @@ Current platform artwork: `public/assets/generated/platform-devices-front.png`. 
 
 ## Interactions
 
-- Header is visible at the top of the page (including over the hero) and tucks away on downward scroll. Scroll travel is accumulated per direction: 18 pixels down hides it, and it only returns after 64 pixels of deliberate upward scroll, so it no longer flies in and out while reading. It stays put whenever it is in use — pointer over the bar, a mega menu open, or the mobile drawer up — and reaching the top of the page always brings it back. A mobile drawer and visible keyboard focus keep it accessible.
+- Header is a full-width frosted bar pinned to the top edge; its contents follow the page's content width. It is visible at the top of the page (including over the hero) and tucks away on downward scroll. Scroll travel is accumulated per direction: 18 pixels down hides it, and it only returns after 64 pixels of deliberate upward scroll, so it no longer flies in and out while reading. It stays put whenever it is in use — pointer over the bar, a mega menu open, or the mobile drawer up — and reaching the top of the page always brings it back. A mobile drawer and visible keyboard focus keep it accessible.
 - Mega menus wait 120 ms before opening on hover, so crossing the nav on the way down the page no longer throws a panel over the content; once one panel is open, moving between them is instant. Click, Escape and the mobile drawer are unchanged.
 - Opening the mobile drawer locks the body scroll and compensates for the removed scrollbar, so the page no longer shifts sideways.
 - Hero slides can be dragged with the mouse, swiped on touch screens and trackpads, changed with the arrow keys, or picked from the tabs. Slides advance every 8 seconds; the active tab shows progress. Autoplay pauses while dragging, while the controls are hovered, on keyboard focus, when the hero is off screen or the tab is hidden, and can be paused with the button. Reduced-motion preferences turn off autoplay, parallax and scene effects.
 - Hero scene effects: mouse parallax and a cursor light on every slide; a lens glint, headphone sound waves and platform notifications on the cat slide; falling light streaks on the markets slide; floating bullion, face-aligned reflection sweeps, edge glints and pointer lighting on the precious-metals slide. Bullion effects pause on inactive slides and are disabled for reduced motion.
 - The partner card uses the glass ByteFX mark (`public/assets/partner/bytefx-glass-mark.webp`, cut out from the supplied artwork with a transparent background).
-- The platforms bento tile reacts to the pointer: the wallpaper drifts against the cursor and a soft light follows it behind the artwork. Coarse pointers and reduced motion get the still image.
+- The commodities bento card's five market icons revolve around the artwork on a tilted ring, passing in front of it on the near side and behind it on the far side. The animation pauses off screen and is disabled for reduced motion.
 - Testimonials auto-scroll as a seamless marquee: the list is rendered twice and the track slides by exactly half its width. Speed is a constant 34 px/s derived from the measured track width, and the animation pauses on hover, on press and on keyboard focus. The row is still a native horizontal scroller for touch and trackpad, the duplicate copy is `aria-hidden`, and `prefers-reduced-motion` stops the drift entirely.
 - Menus support hover, click and Escape. Closed panels use the React boolean `inert` attribute.
 - Broker cards support mouse dragging, native touch scrolling and previous/next buttons with disabled end states.
@@ -97,11 +97,15 @@ The mobile rating is a single generated badge at `public/assets/mobile/platinum-
 
 ## Trading platforms tile
 
-The supplied `extra_assets/image.png` is a wide transparent cut-out (1672 x 941). It was trimmed to its alpha bounding box, resized to 1440 px wide and saved as `public/assets/platforms/trade-everywhere.webp` (365 KB). It replaces `platform-orbit-wallpaper.webp` as the wallpaper behind the tile; the bento grid, the tile's markup and its copy are otherwise unchanged, and no card was added or removed. The previous wallpaper is retained as an unused asset.
+The artwork `public/assets/platforms/trade-everywhere.webp` is a transparent cut-out, so the tile uses the same card surface as the other bento cards. There is no extra panel, overlay, cursor light or hover motion on the artwork. The image sits beside the copy on desktop and below it from 1180px down, so the text never sits on top of it. The earlier pointer-reactive wallpaper (`platform-wallpaper.jsx`) has been removed.
 
-Because the artwork is a cut-out rather than a photograph it is `object-fit: contain`, so nothing is cropped and the tile's own surface shows through the transparent areas. The left-to-right scrim was strengthened and the copy narrowed to 53% so the text still reads over the scene. The tile follows the theme: charcoal in dark mode, a pale green-grey panel in light mode, with the scrim, the copy colours and the cursor light (screen-blended on dark, multiply on light) all flipping with it.
+## Commodities card
 
-`components/platform-wallpaper.jsx` makes it interactive: pointer position is written to the tile as `--wall-x` / `--wall-y` (-0.5 to 0.5) and `--beam-x` / `--beam-y`, which the CSS uses to drift the artwork against the cursor and move a screen-blended light behind it. Hover still scales the scene. Coarse pointers and `prefers-reduced-motion` fall back to the still image.
+`components/market-orbit.jsx` and `app/styles/market-orbit.css`. Five 3D icons in `public/assets/markets/` (Forex, Indices, Crypto, Commodities, Shares) ride a tilted elliptical ring around `market-tokens.png`. JavaScript writes each icon's position on the ring as `--x`, `--y` and `--depth`; the ring's size (`--rx`, `--ry`), tilt and icon size are set in CSS and scale with the card through container units. One lap takes 28 seconds (`LAP` in the component). Icon sources and licences are in `public/assets/markets/sources.json`: Microsoft Fluent Emoji (MIT) and a 3D coin drawn around the CC0 Bitcoin mark. Copy and icon order live in `bento.markets` in `lib/content.js`.
+
+## Build note
+
+The CSS pipeline keeps only the last of `backdrop-filter` / `-webkit-backdrop-filter` when both are written. Write `-webkit-backdrop-filter` first and `backdrop-filter` second, otherwise Chrome receives only the prefixed property and nothing is blurred.
 
 ## Testimonials
 
