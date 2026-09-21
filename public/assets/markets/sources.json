@@ -1,0 +1,10 @@
+{
+  "forex": "Composite of the Euro banknote and Dollar banknote 3D emoji from Microsoft Fluent Emoji (MIT)",
+  "indices": "Bar chart 3D emoji from Microsoft Fluent Emoji (MIT)",
+  "commodities": "Oil drum 3D emoji from Microsoft Fluent Emoji (MIT)",
+  "shares": "Office building 3D emoji from Microsoft Fluent Emoji (MIT)",
+  "crypto": "3D coin drawn for this site around the Bitcoin mark from spothq/cryptocurrency-icons (CC0)",
+  "fluentSource": "https://github.com/microsoft/fluentui-emoji",
+  "bitcoinSource": "https://github.com/spothq/cryptocurrency-icons",
+  "license": "See FLUENT-EMOJI-LICENSE.txt"
+}

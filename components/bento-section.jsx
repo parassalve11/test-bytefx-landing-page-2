@@ -3,7 +3,11 @@ import { bento } from '@/lib/content';
 import Icon from './icon';
 import Reveal from './reveal';
 import SmartLink from './smart-link';
+<<<<<<< HEAD
 import MarketShowcase from './market-showcase';
+=======
+import MarketOrbit from './market-orbit';
+>>>>>>> d7f44829d69d206ecc1518f4ec68d1792fe0f6a1
 
 export default function BentoSection() {
   const { markets, platforms, refer, partner } = bento;
@@ -22,6 +26,7 @@ export default function BentoSection() {
               <p className="lede">{markets.body}</p>
             </div>
 
+<<<<<<< HEAD
             <MarketShowcase markets={markets} />
           </Reveal>
 
@@ -36,6 +41,34 @@ export default function BentoSection() {
                 width={platforms.width}
                 height={platforms.height}
                 sizes="(max-width: 760px) 94vw, (max-width: 1180px) 48vw, 860px"
+=======
+            <MarketOrbit markets={markets} />
+          </Reveal>
+
+          {/* platforms */}
+          <Reveal as="article" className="tile t-platforms t-platforms--plain" delay={80} id="platforms">
+            <div className="t-platforms__copy">
+              <p className="eyebrow">{platforms.eyebrow}</p>
+              <h2 className="h-md">
+                ByteFX platforms built <span className="tint">for{'\u00a0'}you</span>
+              </h2>
+              <p className="lede">{platforms.body}</p>
+              <SmartLink href={platforms.cta.href} className="btn btn--solid btn--sm">
+                {platforms.cta.label}
+                <Icon name="arrow" size={16} />
+              </SmartLink>
+            </div>
+
+            {/* The artwork is already a transparent cut-out, so it sits on the
+                tile's own surface with no added background, overlay or motion. */}
+            <figure className="t-platforms__art">
+              <Image
+                src={platforms.image}
+                alt={platforms.alt}
+                width={1440}
+                height={826}
+                sizes="(max-width: 760px) 92vw, (max-width: 1180px) 46vw, 520px"
+>>>>>>> d7f44829d69d206ecc1518f4ec68d1792fe0f6a1
               />
             </figure>
           </Reveal>
